@@ -49,8 +49,13 @@ print "table created successfully"
 
 personIdsSeen = []
 with open("TMDBPersonInfo") as f:
+    
+    count = 0
+    thousandQueries = ""
+
     for line in f:
-        # change string type to dict type
+
+       # change string type to dict type
         dict = json.loads(line)
         name = dict["name"]
         name =  name.replace("'","")
@@ -58,50 +63,54 @@ with open("TMDBPersonInfo") as f:
         personId = dict["personId"]
         dayofbirth = dict["dayofbirth"]
         dayofdeath = dict["dayofdeath"]
-        query  = "INSERT INTO PersonInfo (name, adult, personId, dayofbirth, dayofdeath) VALUES (" + "'" + str(name) + "', '" + str(adult) + "', '" + str(personId) + "', '" + str(dayofbirth) + "', '" + str(dayofdeath) + "')" 
-        
-        cur.execute(query)
-        conn.commit()
+        query  = "INSERT INTO PersonInfo (name, adult, personId, dayofbirth, dayofdeath) VALUES (" + "'" + str(name) + "', '" + str(adult) + "', '" + str(personId) + "', '" + str(dayofbirth) + "', '" + str(dayofdeath) + "')"  
+        thousandQueries = thousandQueries + query
+        count += 1
+        if (count == 1000):
+            cur.execute(thousandQueries)
+            count = 0
+
+    conn.commit()
 
 print "Done populating PersonInfo."
 
 print "Now populating MovieInfo and Roles..."
 
-with open("TMDBMovieInfo") as f:
-    for line in f:
-        dict = json.loads(line)
-        revenue = dict["revenue"]
-        movieId = dict["id"]
-        originaltitle = dict["originaltitle"]
-        originaltitle = originaltitle.replace("'","")
-        votes = dict["votes"]
-        title = dict["title"]
-        title = title.replace("'","")
-        tagline = dict["tagline"]
-        tagline = tagline.replace("'","")
-        adult = dict["adult"]
-        popularity = dict["popularity"]
-        budget = dict["budget"]
-        releasedate = dict["releasedate"]
-        userrating = dict["userrating"]
-        runtime = dict["runtime"]
-        for dictPair in dict["crew"]:
-            if (dictPair["job"] == "Director"):
-                directorId = dictPair["personId"]
+# with open("TMDBMovieInfo") as f:
+#     for line in f:
+#         dict = json.loads(line)
+#         revenue = dict["revenue"]
+#         movieId = dict["id"]
+#         originaltitle = dict["originaltitle"]
+#         originaltitle = originaltitle.replace("'","")
+#         votes = dict["votes"]
+#         title = dict["title"]
+#         title = title.replace("'","")
+#         tagline = dict["tagline"]
+#         tagline = tagline.replace("'","")
+#         adult = dict["adult"]
+#         popularity = dict["popularity"]
+#         budget = dict["budget"]
+#         releasedate = dict["releasedate"]
+#         userrating = dict["userrating"]
+#         runtime = dict["runtime"]
+#         for dictPair in dict["crew"]:
+#             if (dictPair["job"] == "Director"):
+#                 directorId = dictPair["personId"]
 
-        query = "INSERT INTO MovieInfo (revenue, movieId, originaltitle, votes, title, tagline, directorId, adult, popularity, budget, releasedate, userrating, runtime) VALUES (" + "'" + str(revenue) + "', '" + str(movieId) + "', '" + str(originaltitle) + "', '" + str(votes) + "', '" + str(title) + "', '" + str(tagline) + "', '" + str(directorId) + "', '" + str(adult) + "', '"  + str(popularity) + "', '" + str(budget) + "', '" + str(releasedate) + "', '" + str(userrating) + "', '" + str(runtime) +"')" 
-        cur.execute(query)
-        conn.commit()
+#         query = "INSERT INTO MovieInfo (revenue, movieId, originaltitle, votes, title, tagline, directorId, adult, popularity, budget, releasedate, userrating, runtime) VALUES (" + "'" + str(revenue) + "', '" + str(movieId) + "', '" + str(originaltitle) + "', '" + str(votes) + "', '" + str(title) + "', '" + str(tagline) + "', '" + str(directorId) + "', '" + str(adult) + "', '"  + str(popularity) + "', '" + str(budget) + "', '" + str(releasedate) + "', '" + str(userrating) + "', '" + str(runtime) +"')" 
+#         cur.execute(query)
+#         conn.commit()
 
 
-        for dictPair2 in dict["cast"]:
-            rolePersonId = dictPair2["personId"]
-            roleMovieId = movieId
-            roleCharacter = dictPair2["character"]
-            roleCharacter = roleCharacter.replace("'","")
-            query2 = "INSERT INTO Roles(movieId, personId, character) VALUES (" + "'" + str(roleMovieId) + "', '" + str(rolePersonId) + "', '" + str(roleCharacter) + "')"
-            cur.execute(query2)
-            conn.commit()
+#         for dictPair2 in dict["cast"]:
+#             rolePersonId = dictPair2["personId"]
+#             roleMovieId = movieId
+#             roleCharacter = dictPair2["character"]
+#             roleCharacter = roleCharacter.replace("'","")
+#             query2 = "INSERT INTO Roles(movieId, personId, character) VALUES (" + "'" + str(roleMovieId) + "', '" + str(rolePersonId) + "', '" + str(roleCharacter) + "')"
+#             cur.execute(query2)
+#             conn.commit()
 
 
 print "DONE POPULATING EVERYTHING!!!!!!"

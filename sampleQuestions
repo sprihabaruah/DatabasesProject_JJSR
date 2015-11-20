@@ -5,12 +5,17 @@ Q1. Difficulty: Hard
         FROM PersonInfo
         Where name = “_________”;
 
+        1. Mel Gibson - 1956-01-03
+        2. Tom Cruise - 1962-07-03
+
 Q2. Difficulty: Easy
         In what movie did actor ______ and _______ work together?
 
         SELECT m.title
         FROM movieInfo m INNER JOIN Roles r ON m.movieId = r.movieId INNER JOIN                 PersonInfo p ON p.personId = r.personID
         WHERE p.name = “__________”  OR p.name = “_________”;
+
+        Skipped for now
 
 Q3. Difficulty: Easy
         What was the name of the actor in this movie?
@@ -19,16 +24,5 @@ Q3. Difficulty: Easy
         FROM personInfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN              movieInfo m ON m.movieId = r.movieId
         WHERE m.title = “___________”;
 
-Q4. Difficulty: Medium
-        Who directed the movie __________?
-
-        SELECT p.name
-        FROM personInfo p INNER JOIN movieInfo m ON m.directorId = p.personId
-        WHERE m.title = “____________”;
-
-Q5. Difficulty: Hard
-        What was the release date of the movie ________?
-
-        SELECT releasedate
-        FROM movieInfo
-        WHERE title = “_______”;
+        1. Titanic - Leonardo Dicaprio, Kate Winslet
+        2. 300 - Gerard Butler
