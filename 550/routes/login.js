@@ -11,8 +11,9 @@ function generateResponse(req, res) {
 			if(err) {
 				return console.error('error running query', err);
 			}
+			// retrieving the first out of the first 10 queries. 
 			console.log(result.rows[0]);
-			result = result.rows[0];
+			result = result.rows[0]["name"];
 			res.render('login.ejs', {result: result});
 			client.end();
 		});
@@ -24,8 +25,8 @@ exports.displayResponse = function(req, res){
 };
 
 
-app.get('/login', function(req, res, next) {
-	res.render('login',{result:result});
-
-	  // sending a response does not pause the function
-	});
+//app.get('/login', function(req, res, next) {
+//	res.render('login',{result:result});
+//
+//	  // sending a response does not pause the function
+//	});
