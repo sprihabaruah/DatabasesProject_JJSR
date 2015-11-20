@@ -18,7 +18,7 @@ Q2. Difficulty: Easy
         Skipped for now
 
 Q3. Difficulty: Easy
-        What was the name of the actor in this movie?
+        Which of the following actors were in <moviename>? ( <moviename> is "Titanic" or "300")
 
         SELECT p.name
         FROM personInfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN              movieInfo m ON m.movieId = r.movieId

@@ -1,4 +1,37 @@
 
+function getResults(req, db, callback) {
+	
+	var whichDay = req.query.DAY;
+	var when = req.query.TIME;
+	
+	// need to parse. 
+	//{"hours.Monday.open":{$gt: "15:00"},"hours.Monday.close":{$gt:"16:00"}}
+	
+	var parseArray = when.split(" ");
+	// [0] = open , [2] = close
+	var dayOpenPart = {};
+	var dayClosePart = {};
+	dayOpenPart['$gt'] = parseArray[0];
+	dayClosePart['$gt'] = parseArray[2];
+	
+	var keyToOpen = 'hours.' + whichDay + '.open';
+	var keyToClose = 'hours.' + whichDay + '.close';
+	query[keyToOpen] = dayOpenPart; 
+	query[keyToClose] = dayClosePart;
+	console.log(query);
+	var cursor = db.collection('business').find(query);
+	var results = [];
+	cursor.each(function(err, doc) {
+		if (doc != null) {
+			//console.log(doc);
+			results.push(doc.name);
+		} else {
+			callback(results);
+		}
+	});
+};
+
+
 function generateResponse(req, res) {
 	var pg = require('pg');
 	var connectionString = 'postgres://groupjjsr:groupjjsrpassword@groupjjsr.cup5jjaxtuqn.us-west-2.rds.amazonaws.com:5432/groupjjsr';

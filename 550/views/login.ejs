@@ -5,18 +5,46 @@
   </head>
   <body>    
   
-    <p><%= result %></p>
-  	
+    <!-- <p><%= result %></p> -->
+    <h1>Trivia time!</h1>
+
     <form method="get" action="/login">
+
+    <p id="q1">Which of the following actors were in Titanic?</p>
  
-	<p><input type="radio", name = "1">1</input></p>
-	<p><input type="radio", name = "2">2</input></p>
-	<p><input type="radio", name = "3">3</input></p>
-	<p><input type="radio", name = "4">4</input></p>
+	<p><input type="radio", name = "options">abcde1</input></p>
+	<p><input type="radio", name = "options">abcde2</input></p>
+	<p><input type="radio", name = "options">abcde3</input></p>
+	<p><input type="radio", name = "options">abcde4</input></p>
+
+
+	<p id="q1">Which of the following actors were in 300?</p>
+ 
+	<p><input type="radio", name = "options2">abcde5</input></p>
+	<p><input type="radio", name = "options2">abcde6</input></p>
+	<p><input type="radio", name = "options2">abcde7</input></p>
+	<p><input type="radio", name = "options2">abcde8</input></p>
+
 	
-	<p><button type="submit" class="btn btn-warning btn-lg">Submit</button></p>
+	<p><button type="submit" onclick="test()" class="btn btn-warning btn-lg">Submit</button></p>
 	
+	<!-- TODO: find out which options the user submitted, and calculate score from it.  -->
+
 	</form>
+
+	<script type="text/javascript">
+	function test() {
+		var options = document.getElementsByName("options");
+		console.log(options);
+		for(var option in options) {
+			console.log(option.value);
+			if (option.checked) {
+				alert("option checked was" + option.value);
+			}
+		}
+	}
+	
+	</script>
 	
   </body>
 </html>
