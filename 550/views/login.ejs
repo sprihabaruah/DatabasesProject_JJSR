@@ -35,6 +35,7 @@
 	<script type="text/javascript">
 	var options = document.getElementsByName("options");
 	for(var option in options) {
+		console.log(option.value);
 		if (option.checked) {
 			alert("option checked was" + option.value);
 		}
