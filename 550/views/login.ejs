@@ -26,20 +26,24 @@
 	<p><input type="radio", name = "options2">abcde8</input></p>
 
 	
-	<p><button type="submit" class="btn btn-warning btn-lg">Submit</button></p>
+	<p><button type="submit" onclick="test()" class="btn btn-warning btn-lg">Submit</button></p>
 	
 	<!-- TODO: find out which options the user submitted, and calculate score from it.  -->
 
 	</form>
 
 	<script type="text/javascript">
-	var options = document.getElementsByName("options");
-	for(var option in options) {
-		console.log(option.value);
-		if (option.checked) {
-			alert("option checked was" + option.value);
+	function test() {
+		var options = document.getElementsByName("options");
+		console.log(options);
+		for(var option in options) {
+			console.log(option.value);
+			if (option.checked) {
+				alert("option checked was" + option.value);
+			}
 		}
 	}
+	
 	</script>
 	
   </body>
