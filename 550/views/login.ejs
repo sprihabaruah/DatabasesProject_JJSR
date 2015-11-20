@@ -12,18 +12,18 @@
 
     <p id="q1">Which of the following actors were in Titanic?</p>
  
-	<p><input type="radio", name = "1">abcde1</input></p>
-	<p><input type="radio", name = "2">abcde2</input></p>
-	<p><input type="radio", name = "3">abcde3</input></p>
-	<p><input type="radio", name = "4">abcde4</input></p>
+	<p><input type="radio", name = "options">abcde1</input></p>
+	<p><input type="radio", name = "options">abcde2</input></p>
+	<p><input type="radio", name = "options">abcde3</input></p>
+	<p><input type="radio", name = "options">abcde4</input></p>
 
 
 	<p id="q1">Which of the following actors were in 300?</p>
  
-	<p><input type="radio", name = "1">abcde5</input></p>
-	<p><input type="radio", name = "2">abcde6</input></p>
-	<p><input type="radio", name = "3">abcde7</input></p>
-	<p><input type="radio", name = "4">abcde8</input></p>
+	<p><input type="radio", name = "options">abcde5</input></p>
+	<p><input type="radio", name = "options">abcde6</input></p>
+	<p><input type="radio", name = "options">abcde7</input></p>
+	<p><input type="radio", name = "options">abcde8</input></p>
 
 	
 	<p><button type="submit" class="btn btn-warning btn-lg">Submit</button></p>
@@ -31,6 +31,15 @@
 	<!-- TODO: find out which options the user submitted, and calculate score from it.  -->
 
 	</form>
+
+	<script type="text/javascript">
+	var allOptions = document.getElementsByName("options");
+	for(var option in allOptions) {
+		if (option.checked) {
+			alert("option checked was" + option.value);
+		}
+	}
+	</script>
 	
   </body>
 </html>
