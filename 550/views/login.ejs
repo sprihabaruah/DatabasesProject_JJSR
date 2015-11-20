@@ -20,18 +20,12 @@
 
 	<p id="q1">Which of the following actors were in 300?</p>
  
-	<p><input type="radio", name = "options2">abcde5</input></p>
-	<p><input type="radio", name = "options2">abcde6</input></p>
-	<p><input type="radio", name = "options2">abcde7</input></p>
-	<p><input type="radio", name = "options2">abcde8</input></p>
+	<p><input type="radio", name = "options">abcde5</input></p>
+	<p><input type="radio", name = "options">abcde6</input></p>
+	<p><input type="radio", name = "options">abcde7</input></p>
+	<p><input type="radio", name = "options">abcde8</input></p>
 
 	
-	<p><button type="submit" onclick="test()" class="btn btn-warning btn-lg">Submit</button></p>
-	
-	<!-- TODO: find out which options the user submitted, and calculate score from it.  -->
-
-	</form>
-
 	<script type="text/javascript">
 	function test() {
 		var options = document.getElementsByName("options");
@@ -43,8 +37,18 @@
 			}
 		}
 	}
-	
 	</script>
+	
+	<p><button type="submit" onclick="test" class="btn btn-warning btn-lg">Submit</button></p>
+	
+	<!-- TODO: find out which options the user submitted, and calculate score from it.  -->
+
+	
+	</form>
+
+	
+	
+	
 	
   </body>
 </html>
