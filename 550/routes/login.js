@@ -170,7 +170,9 @@ function generateResponse(req, res) {
 			console.log(totalOptions);
 			client.end();
 		});
-		totalOptions.push(optionCollection2)		
+		
+		totalOptions.push(optionCollection2)
+		res.render('login.ejs', {totalOptions: totalOptions});		
 	});
 }
 
