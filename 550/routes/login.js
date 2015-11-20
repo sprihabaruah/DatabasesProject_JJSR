@@ -116,7 +116,7 @@ function generateResponse(req, res) {
 			// console.log(result);
 			// console.log(result.rowCount);
 			var randomIndex = (Math.floor(Math.random() * (result.rowCount - 0) + 0));
-			console.log(result.rows[randomIndex]);
+			//console.log(result.rows[randomIndex]);
 			
 			result = result.rows[randomIndex];
 			optionCollection2.push(result);
@@ -132,7 +132,7 @@ function generateResponse(req, res) {
 			// console.log(result.rowCount);
 			var randomIndex = (Math.floor(Math.random() * (result.rowCount - 0) + 0));
 			// console.log(result);
-			console.log(result.rows[randomIndex]);
+			//console.log(result.rows[randomIndex]);
 			
 			result = result.rows[randomIndex];
 			optionCollection2.push(result);
@@ -147,7 +147,7 @@ function generateResponse(req, res) {
 			// retrieving the first out of the first 10 queries. 
 			// console.log(result.rowCount);
 			var randomIndex = (Math.floor(Math.random() * (result.rowCount - 0) + 0));
-			console.log(result.rows[randomIndex]);
+			//console.log(result.rows[randomIndex]);
 			
 			result = result.rows[randomIndex];
 			optionCollection2.push(result);
@@ -162,7 +162,7 @@ function generateResponse(req, res) {
 			// retrieving the first out of the first 10 queries. 
 			// console.log(result.rowCount);
 			var randomIndex = (Math.floor(Math.random() * (result.rowCount - 0) + 0));
-			console.log(result.rows[randomIndex]);
+			//console.log(result.rows[randomIndex]);
 			
 			result = result.rows[randomIndex];
 			optionCollection2.push(result);
@@ -170,7 +170,7 @@ function generateResponse(req, res) {
 			// console.log(totalOptions);
 			client.end();
 		});
-		
+
 		totalOptions.push(optionCollection2)
 		res.render('login.ejs', {totalOptions: totalOptions});		
 	});
