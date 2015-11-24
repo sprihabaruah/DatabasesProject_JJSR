@@ -7,9 +7,11 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.get('/login', function(req, res, next) {
-	  res.render('login',{result:3});
-	});
+/**THIS WAS THE PROBLEM**/
+
+//router.get('/login', function(req, res, next) {
+//	  res.render('login',{result:3});
+//	});
 
 
 router.get('/score', function(req, res, next) {
