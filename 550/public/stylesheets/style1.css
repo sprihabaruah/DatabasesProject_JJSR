@@ -1,0 +1,20 @@
+body {
+  background: url("14.gif");
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.heading {
+  text-align: center;
+}
+
+h1 {
+  padding-top: 3cm;
+  color: white;
+  font-size: 500%;
+}
+
+p {
+  color: white;
+  font-size: 100%;
+}
