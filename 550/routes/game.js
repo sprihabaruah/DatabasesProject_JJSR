@@ -43,6 +43,8 @@ function generateResponse(req, res) {
 	var totalOptions = [];
 	var optionCollection = [];
 	var optionCollection2 = [];
+	
+	
 	client.connect(function(err) {
 		if(err) {
 			return console.error('could not connect to postgres', err);
@@ -169,7 +171,7 @@ function generateResponse(req, res) {
 //						res.render('login.ejs', {result: result});
 						// console.log(totalOptions);
 						totalOptions.push(optionCollection2);
-						res.render('login.ejs', {totalOptions: totalOptions});		
+						res.render('game.ejs', {totalOptions: totalOptions});		
 						
 						client.end();
 					});
@@ -195,7 +197,7 @@ function generateResponse(req, res) {
 }
 
 exports.displayResponse = function(req, res){
-	console.log("HERE");
+	console.log("HEREHEREHEREHEREHEREHEREHEREHEREHEREHEREHEREHEREHEREHEREHEREHEREHEREHERE");
 	generateResponse(req, res);
 };
 

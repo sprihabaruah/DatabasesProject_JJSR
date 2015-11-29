@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var output = require('./routes/game');
+var profile = require('./routes/profile');
 
 
 //var app = express();
@@ -51,6 +52,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 //routes ======================================================================
 require('./routes/index.js')(app, passport); // load our routes and pass in our app and fully configured passport
+require('./routes/profile.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 // launch ======================================================================
 app.listen(port);
@@ -72,9 +74,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-
+app.use('/profile', profile);
+/****/
+//app.use('/game', output.displayResponse);
 app.get('/login', output.displayResponse);
 app.get('/output', output.displayResponse);
+
+
+/****/
+//app.get('/login', output.displayResponse);
+//app.get('/output', output.displayResponse);
 
 
 // catch 404 and forward to error handler

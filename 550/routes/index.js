@@ -7,6 +7,13 @@ module.exports = function(app, passport) {
         res.render('index.ejs'); // load the index.ejs file
     });
 
+    app.get('/game', function(req, res) {
+
+        // render the page and pass in any flash data if it exists
+        res.render('game.ejs', { message: req.flash('gameMessage') }); 
+    });
+
+    
     // =====================================
     // LOGIN ===============================
     // =====================================
