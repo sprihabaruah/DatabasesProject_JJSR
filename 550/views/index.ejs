@@ -1,16 +1,17 @@
-<!DOCTYPE html>
+<!-- views/index.ejs -->
+<!doctype html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+<head>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    
-    
-    <nav class="navbar navbar-default">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <style>
+        body        { padding-top:80px; }
+    </style>
+</head>
+<body>
+
+ <nav class="navbar navbar-default">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
 	      <a class="navbar-brand" href="/">GAME</a>
@@ -20,6 +21,7 @@
 	        <li class="active"><a href="/">Home</a></li>
 	        <li><a href="/login">LOG IN</a></li>
 	        <li><a href="/output">Take quiz</a></li>
+	        <li><a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a></li>
 	      </ul>
 	    </div>
 	  </div>
@@ -30,6 +32,5 @@
 	<button type="submit" class="btn btn-warning btn-lg">Play Game</button>
 	</p>
 	</form>
-    
-  </body>
+</body>
 </html>
