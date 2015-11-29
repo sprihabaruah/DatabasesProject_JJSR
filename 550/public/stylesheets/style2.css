@@ -11,7 +11,14 @@ body {
 h1 {
   padding-top: 3cm;
   color: black;
+  text-align:center
 }
+
+h3 {
+  color: black;
+  text-align:center
+}
+
 
 p {
   color: black;
