@@ -30,6 +30,9 @@
 //		}
 //	});
 //};
+
+
+
 function getResults(req, callback) {
 	var temp = req.options;
 	// console.log(req);
@@ -187,7 +190,6 @@ function generateResponse(req, res) {
 //		console.log(optionCollection2[0])
 		
 //		console.log(totalOptions[0])
-		// console.log("TOTAL OPTIONS "+ totalOptions + " END")
 		
 		getResults(req, function(totalOptions) {
 			

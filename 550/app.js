@@ -77,7 +77,7 @@ app.use('/users', users);
 app.use('/profile', profile);
 /****/
 //app.use('/game', output.displayResponse);
-app.get('/login', output.displayResponse);
+app.get('/game', output.displayResponse);
 app.get('/output', output.displayResponse);
 
 

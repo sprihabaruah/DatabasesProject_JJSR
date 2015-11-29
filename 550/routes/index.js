@@ -1,3 +1,5 @@
+
+
 module.exports = function(app, passport) {
 
     // =====================================
@@ -8,7 +10,9 @@ module.exports = function(app, passport) {
     });
 
     app.get('/game', function(req, res) {
-
+    	
+    	// TODO game.js must be invoked first
+    	
         // render the page and pass in any flash data if it exists
         res.render('game.ejs', { message: req.flash('gameMessage') }); 
     });
