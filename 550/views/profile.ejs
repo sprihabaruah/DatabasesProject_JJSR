@@ -15,22 +15,31 @@
 
     <div class="page-header text-center">
         <h1><span class="fa fa-anchor"></span> Profile Page</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     </div>
 
     <div class="row">
 
         <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
+        <div>
+            <div>
+                <h3><span class="fa fa-user"></span> Welcome! <%= user.local.email %> </h3>
 
-                    <p>
-                        <strong>id</strong>: <%= user._id %><br>
-                        <strong>email</strong>: <%= user.local.email %><br>
-                        <strong>password</strong>: <%= user.local.password %>
-                    </p>
-
+					<form method="get" action="/game">
+    				<p>
+					<button type="submit" class="btn btn-warning btn-lg">Play Game</button>
+					</p>
+					</form>
+	
+	
+					<form method="get" action="/logout">
+    				<p>
+					<button type="submit" class="btn btn-warning btn-lg">Logout</button>
+					</p>
+					</form>
+                    
+					
+					
+					
             </div>
         </div>
 
@@ -38,11 +47,8 @@
 
 </div>
 
-<form method="get" action="/game">
-    <p>
-	<button type="submit" class="btn btn-warning btn-lg">Play Game</button>
-	</p>
-	</form>
+
+
 
 
 </body>
