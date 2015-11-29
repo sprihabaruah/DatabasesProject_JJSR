@@ -1,6 +1,8 @@
 <!-- views/index.ejs -->
 <!doctype html>
 <html>
+
+
 <head>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
@@ -8,26 +10,23 @@
     <style>
         body        { padding-top:80px; }
     </style>
+    
+    
+    
+    
+    
 </head>
+
+
+
 <body>
 
- <nav class="navbar navbar-default">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <a class="navbar-brand" href="/">GAME</a>
-	    </div>
-	    <div>
-	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="/">Home</a></li>
-	        
-	        <li><a href="/output">Take quiz</a></li>
 
-	      </ul>
-	    </div>
-	   
-	  </div>
-	  <br> </br>
-	  <div class="container-fluid">
+	<p>
+	
+	
+	<nav class="navbar navbar-default">
+	   <div class="container-fluid">
 	    <div class="navbar-header">
 	      <a class="navbar-brand" href="/">Account </a>
 	    </div>
@@ -37,12 +36,18 @@
 	      	<li><a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Login </a></li>
 	      </ul>
 	    </div>
-	  </nav>
+	   </nav>
+	
+	</p>
+	   
     
     <form method="get" action="/login">
     <p>
 	<button type="submit" class="btn btn-warning btn-lg">Play Game</button>
 	</p>
 	</form>
+	
 </body>
+
+
 </html>
