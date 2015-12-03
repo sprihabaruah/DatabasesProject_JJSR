@@ -8,7 +8,12 @@ var totalOptions = [];
 var optionCollection = [];
 var optionCollection2 = [];
 
-function hello(req, res) {
+function hello(req, res, callback) {
+    if (totalOptions.length != 0) {
+        totalOptions = [];
+        optionCollection = [];
+        optionCollection2 = [];
+    }
     console.log("request " + req.query.test)
     var pg = require('pg');
     var connectionString = 'postgres://groupjjsr:groupjjsrpassword@groupjjsr.cup5jjaxtuqn.us-west-2.rds.amazonaws.com:5432/groupjjsr';
@@ -165,6 +170,12 @@ function hello(req, res) {
 //      console.log(totalOptions[0])
         
     });
+
+if (totalOptions.length == 0) {
+            fakeOptions = ["test1", "test2", "test3", "test4"];
+            totalOptions.push(fakeOptions);
+        }
+
 }
 
 
@@ -178,12 +189,9 @@ module.exports = function(app, passport) {
     });
 
     app.get('/game', function(req, res) {
-    	hello(req, res);
+    	hello(req, res, res.render('game.ejs', { message: req.flash('gameMessage'), totalOptions: totalOptions}));
     	// TODO game.js must be invoked first
-    	if (totalOptions.length == 0) {
-            fakeOptions = ["test1", "test2", "test3", "test4"];
-            totalOptions.push(fakeOptions);
-        }
+    	
         // render the page and pass in any flash data if it exists
         res.render('game.ejs', { message: req.flash('gameMessage'), totalOptions: totalOptions}); 
     });
