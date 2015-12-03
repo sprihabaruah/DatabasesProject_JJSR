@@ -170,9 +170,7 @@ function generateResponse(req, res) {
 						
 						result = result.rows[randomIndex];
 						optionCollection2.push(result);
-//						console.log(optionCollection2[0])
-//						res.render('login.ejs', {result: result});
-						// console.log(totalOptions);
+						
 						totalOptions.push(optionCollection2);
 						res.render('game.ejs', {totalOptions: totalOptions});		
 						
