@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<!-- TODO: 
+	figure out how to transfer totalOptions from login.js to login.ejs.
+	find out which options the user submitted, and calculate score from it.  -->
+	
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>    
+  
+    <h1>Trivia time!</h1>
+
+    <form method="get" action="/login">
+
+    <p id="q1">Which of the following actors were in Titanic?</p>
+ 
+	<p><input type="radio", name = "options"><%= totalOptions[0][0]%></input></p>
+	<p><input type="radio", name = "options"><%= totalOptions[0][1]%></input></p>
+	<p><input type="radio", name = "options"><%= totalOptions[0][2]%></input></p>
+	<p><input type="radio", name = "options"><%= totalOptions[0][3]%></input></p>
+
+
+	<p id="q1">Which of the following actors were in 300?</p>
+ 
+	<p><input type="radio", name = "options2"><%= totalOptions[1][0]%></input></p>
+	<p><input type="radio", name = "options2"><%= totalOptions[1][1]%></input></p>
+	<p><input type="radio", name = "options2"><%= totalOptions[1][2]%></input></p>
+	<p><input type="radio", name = "options2"><%= totalOptions[1][3]%></input></p>
+
+	
+	<p><button type="submit" onclick="test()" class="btn btn-warning btn-lg">Submit</button></p>
+	
+
+	<script type="text/javascript">
+	console.log("hello");
+	</script>
+
+
+	</form>
+
+	<script type="text/javascript">
+	function test() {
+		var options = document.getElementsByName("options");
+		console.log(options);
+		for(var option in options) {
+			console.log(option.value);
+			if (option.checked) {
+				alert("option checked was" + option.value);
+			}
+		}
+	}
+	
+	</script>
+	
+  </body>
+</html>
