@@ -80,8 +80,7 @@ function hello(req, res) {
 //          res.render('login.ejs', {result: result});
             // client.end();
         });
-        //totalOptions.push(optionCollection);
-        totalOptions.push("test");
+        totalOptions.push(optionCollection);
 
 
         client.query('SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'Titanic\';', function(err, result) {
@@ -138,8 +137,7 @@ function hello(req, res) {
                         result = result.rows[randomIndex];
                         optionCollection2.push(result);
                         
-                        //totalOptions.push(optionCollection2);
-                        totalOptions.push("test2");
+                        totalOptions.push(optionCollection2);
                         //res.render('game.ejs', {totalOptions: totalOptions});       
                         
                         client.end();
