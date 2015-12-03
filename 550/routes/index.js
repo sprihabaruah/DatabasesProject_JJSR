@@ -5,6 +5,7 @@ var router = express.Router();
 //     res.render('game.ejs', {result: totalOptions});
 // });
 var totalOptions = [];
+
 function hello(req, res) {
     console.log("request " + req.query.test)
     var pg = require('pg');
@@ -138,7 +139,6 @@ function hello(req, res) {
                         optionCollection2.push(result);
                         
                         totalOptions.push(optionCollection2);
-                        totalOptions.push(["hello"]);
                         //res.render('game.ejs', {totalOptions: totalOptions});       
                         
                         client.end();
