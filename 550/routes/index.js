@@ -8,7 +8,7 @@ var totalOptions = [];
 var optionCollection = [];
 var optionCollection2 = [];
 
-function hello(req, res, callback) {
+function hello(req, res) {
     if (totalOptions.length != 0) {
         totalOptions = [];
         optionCollection = [];
@@ -189,7 +189,7 @@ module.exports = function(app, passport) {
     });
 
     app.get('/game', function(req, res) {
-    	hello(req, res, res.render('game.ejs', { message: req.flash('gameMessage'), totalOptions: totalOptions}));
+    	hello(req, res);
     	// TODO game.js must be invoked first
     	
         // render the page and pass in any flash data if it exists
