@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/game', function(req, res, next) {
-    res.render('game.ejs', {result: totalOptions});
-});
+// router.get('/game', function(req, res, next) {
+//     res.render('game.ejs', {result: totalOptions});
+// });
 
 module.exports = function(app, passport) {
 
@@ -19,7 +19,7 @@ module.exports = function(app, passport) {
     	// TODO game.js must be invoked first
     	
         // render the page and pass in any flash data if it exists
-        res.render('game.ejs', { message: req.flash('gameMessage') }); 
+        res.render('game.ejs', { message: req.flash('gameMessage'), totalOptions: "hello" }); 
     });
 
     
