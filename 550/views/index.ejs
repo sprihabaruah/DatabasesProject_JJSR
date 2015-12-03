@@ -1,211 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Movie Trivia!</title>
-<meta charset="utf-8">
-<link rel="shortcut icon" type="/stylesheets/image/x-icon" href="/stylesheets/css/images/favicon.ico">
-<link rel="stylesheet" href="/stylesheets/css/style.css" type="text/css" media="all">
-<link rel="stylesheet" href="/stylesheets/css/colorbox.css" type="text/css" media="all">
-<script src="/stylesheets/js/jquery-1.8.0.min.js"></script>
-<script src="/stylesheets/js/jquery.colorbox-min.js"></script>
-<!--[if lt IE 9]><script src="/stylesheets/js/modernizr.custom.js"></script><![endif]-->
-<script src="/stylesheets/js/functions.js"></script>
-</head>
-<body>
+<!--
+TEMPLATE
+Name: Zoo Planet
+Version: 1.0
+Created: 23 January 2014
 
+AUTHOR
+Design and code by: http://www.bootshape.com
+Free stock photos by: http://www.bootshape.com
 
-<!-- wrapper -->
-<div id="wrapper">
-  <div class="light-bg">
-    <!-- shell -->
-    <div class="shell">
-      <!-- header -->
-      <div class="header">
-        <!-- socials -->
-        <div class="socials"> <a href="https://www.facebook.com" class="facebook-ico">facebook-ico</a> <a href="https://twitter.com" class="twitter-ico">twitter-ico</a> <a href="https://www.youtube.com" class="you-tube-ico">you-tube-ico</a> </div>
-        <!-- end of socials -->
-        <h1 id="logo"><a href="#">Movie Trivia!</a></h1>
-        <!-- navigation -->
-		<nav id="navigation">
-          <ul>
-            <li><a href="#">HOME <span>HOME</span></a> </li>
-            <li><a href="/signup">SIGN UP <span>SIGN UP</span></a></li>
-            <li><a href="/login">LOG IN<span>LOG IN</span></a></li>
+Read full license: http://www.bootshape.com/license.php
+
+CREDITS
+Background: http://subtlepatterns.com/ (extra_clean_paper)
+Fonts: http://www.google.com/fonts (Actor, Duru_Sans)
+
+SUPPORT
+E-mail: bootshape.com@gmail.com
+Contact: http://www.bootshape.com/contact.php
+-->
+<html>
+  <head>
+    <title>Movie Trivia!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="/stylesheets/zoo-planet/html/css/bootstrap.css" rel="stylesheet">
+    
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Duru+Sans|Actor' rel='stylesheet' type='text/css'>
+    
+    <!--Bootshape-->
+    <link href="/stylesheets/zoo-planet/html/css/bootshape.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- Navigation bar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><span class="green">Movie</span> Trivia!</a>
+        </div>
+        <nav role="navigation" class="collapse navbar-collapse navbar-right">
+          <ul class="navbar-nav nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li class="dropdown">
+              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Account <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/signup">Sign Up</a></li>
+                <li class="active"><a href="/login">Log In</a></li>
+                <!-- 
+                <li><a href="#">Item 3</a></li>
+                <li class="divider"></li>
+                <li><a href="#">All Items</a></li>
+                -->
+              </ul>
+            </li>
+            
+            <!--
+            <li><a href="#">Special Offers</a></li>
+            <li><a href="#">License</a></li>
+            -->
+            
+            <li><a href="#">Contacts</a></li>
           </ul>
         </nav>
-        <!-- end of navigation -->
-        <div class="cl">&nbsp;</div>
       </div>
-      <!-- end of header -->
-      <!-- main -->
-      <div class="main">
-        <!-- content -->
-        <section class="content">
-          <!-- post -->
-          <div class="post">
-            <!-- post-inner -->
-            <div class="post-inner">
-              <header>
-                <h2><a href="#">Skyfall</a></h2>
-                <p class="tags"><a href="#">THRILLER</a> <a href="#">ACTION</a> </p>
-                <div class="cl">&nbsp;</div>
-              </header>
-              <div class="img-holder"> <a href="#"><img src="/stylesheets/17.gif" alt=""></a> <a href="/stylesheets/17.gif" class="btn-full-image popup"><span>FULL IMAGE</span></a> </div>
-              <!-- meta -->
-              
-              <div class="meta">
-                <p class="date">APRIL 09, 2012 by <a href="https://en.wikipedia.org/wiki/Sam_Mendes">Sam Mendes</a></p>
-                <div class="right">
-                  <div class="rating-holder">
-                    <p>RATING</p>
-                    <div class="rating"> <span style="width: 100%;"></span> </div>
-                  </div>
-                 
-                 <!-- <a href="#" class="comments">59 comments</a> --> </div>
-                <div class="cl">&nbsp;</div>
-              </div>
-              <!-- end of meta -->
-              <!-- post-cnt -->
-              <div class="post-cnt">
-                <p>
-                When James Bond's (Daniel Craig) latest assignment goes terribly wrong, it leads to a calamitous turn of events: Undercover agents around the world are exposed, and MI6 is attacked, forcing M (Judi Dench) to relocate the agency. With MI6 now compromised inside and out, M turns to the one man she can trust: Bond. Aided only by a field agent (Naomie Harris), Bond takes to the shadows and follows a trail to Silva (Javier Bardem), a man from M's past who wants to settle an old score.
-                 </p>
-                 <!-- <a href="#" class="more">CONTINUE READING</a> </div> -->
-              <!-- end of post-cnt -->
+    </div><!-- End Navigation bar -->
+
+    <!-- Slide gallery -->
+    <div class="jumbotron">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item active">
+            <img src="/stylesheets/zoo-planet/html/img/dracula.jpg" alt="">
+            <div class="carousel-caption">
             </div>
-            <!-- post-inner -->
           </div>
-          <!-- end of post -->
-          <!-- post -->
-          <div class="post">
-            <!-- post-inner -->
-            <div class="post-inner">
-              <header>
-                <h2><a href="#">Minions</a></h2>
-                <p class="tags"><a href="#">FAMILY</a> <a href="#">COMEDY</a> <a href="#">ANIMATION</a> </p>
-                <div class="cl">&nbsp;</div>
-              </header>
-              <div class="img-holder"> <a href="#"><img src="/stylesheets/css/images/post-img2.jpg" alt=""></a> <a href="css/images/post-img2.jpg" class="btn-full-image popup"><span>FULL IMAGE</span></a> </div>
-              <!-- meta -->
-              <div class="meta">
-                <p class="date">JULY 10, 2015 by <a href="https://en.wikipedia.org/wiki/Pierre_Coffin">PIERRE COFFIN, </a><a href="https://en.wikipedia.org/wiki/Kyle_Balda">KYLE BALDA</a></p>
-                <div class="right">
-                  <div class="rating-holder">
-                    <p>RATING</p>
-                    <div class="rating"> <span style="width: 50%;"></span> </div>
-                  </div>
-                  <!-- <a href="#" class="comments">59 comments</a> --> </div>
-                <div class="cl">&nbsp;</div>
-              </div>
-              <!-- end of meta -->
-              <!-- post-cnt -->
-              <div class="post-cnt">
-                <p>
-                  Evolving from single-celled yellow organisms at the dawn of time, Minions live to serve, but find themselves working for a continual series of unsuccessful masters, from T. Rex to Napoleon. Without a master to grovel for, the Minions fall into a deep depression. But one minion, Kevin, has a plan; accompanied by his pals Stuart and Bob, Kevin sets forth to find a new evil boss for his brethren to follow. Their search leads them to Scarlet Overkill, the world's first-ever super-villainess.
-                </p>
-               <!-- <a href="#" class="more">CONTINUE READING</a> </div> -->
-              <!-- end of post-cnt -->
+          <div class="item">
+            <img src="/stylesheets/zoo-planet/html/img/inception.jpg" alt="">
+            <div class="carousel-caption">
             </div>
-            <!-- post-inner -->
           </div>
-          <!-- end of post -->
-          <!-- post -->
-          <div class="post">
-            <!-- post-inner -->
-            <div class="post-inner">
-              <header>
-                <h2><a href="#">The Hunger Games</a></h2>
-                <p class="tags"><a href="#">FANTASY</a>  <a href="#">SCIENCE FICTION</a> </p>
-                <div class="cl">&nbsp;</div>
-              </header>
-              <div class="img-holder"> <a href="#"><img src="/stylesheets/2.gif" alt=""></a> <a href="/stylesheets/2.gif" class="btn-full-image popup"><span>FULL IMAGE</span></a> </div>
-              <!-- meta -->
-              <div class="meta">
-                <p class="date">NOVEMBER 16, 2015 by <a href="https://en.wikipedia.org/wiki/Francis_Lawrence">Francis Lawrence</a></p>
-                <div class="right">
-                  <div class="rating-holder">
-                    <p>RATING</p>
-                    <div class="rating"> <span style="width: 70%;"></span> </div>
-                  </div>
-                  <!--<a href="#" class="comments">59 comments</a> --></div>
-                <div class="cl">&nbsp;</div>
-              </div>
-              <!-- end of meta -->
-              <!-- post-cnt -->
-              <div class="post-cnt">
-                <p>
-                Realizing the stakes are no longer just for survival, Katniss Everdeen (Jennifer Lawrence) teams up with her closest friends, including Peeta (Josh Hutcherson), Gale (Liam Hemsworth) and Finnick for the ultimate mission. Together, they leave District 13 to liberate the citizens of war-torn Panem and assassinate President Snow, who's obsessed with destroying Katniss. What lies ahead are mortal traps, dangerous enemies and moral choices that will ultimately determine the future of millions.
-                </p>
-               <!-- <a href="#" class="more">CONTINUE READING</a> --> </div>
-              <!-- end of post-cnt -->
+          <div class="item">
+            <img src="/stylesheets/zoo-planet/html/img/jurassic" alt="">
+            <div class="carousel-caption">
             </div>
-            <!-- post-inner -->
           </div>
-          <!-- end of post -->
-          <!--
-          <div class="pagination">
-            <ul>
-              <li class="laquo"><a href="#"><span></span></a></li>
-              <li class="active"><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li class="raquo"><a href="#"><span></span></a></li>
-              <li><a href="#">10</a></li>
-              <li class="dots">. . .</li>
-              <li><a href="#">last</a></li>
-            </ul>
-          </div>
-          -->
-        </section>
-        <!-- end of content -->
-        <!-- sidebar -->
-        <aside class="sidebar">
-        
-          <div class="widget">
-            <h3 class="widgettitle">Home</h3>
-            <ul>
-              <li><a href="#">Home</a></li>
-            </ul>
-          </div>
-        
-          <div class="widget">
-            <h3 class="widgettitle">Account</h3>
-            <ul>
-              <li><a href="/signup">Sign Up</a></li>
-              <li><a href="/login">LogIn</a></li>
-            </ul>
-          </div>
-          
-          <div class="widget socials-widget">
-            <h3 class="widgettitle">Get Connected</h3>
-            <ul>
-              <li><a href="https://www.facebook.com" class="facebook-ico"><span></span>Facebook</a></li>
-              <li><a href="https://twitter.com" class="twitter-ico"><span></span>Twitter</a></li>
-              <li><a href="https://www.linkedin.com" class="linkedin-ico"><span></span>Linkedin</a></li>
-              <li><a href="https://www.youtube.com" class="you-tube-ico"><span></span>Youtube</a></li>
-            </ul>
-          </div>
-        </aside>
-        <!-- end of sidebar -->
-        <div class="cl">&nbsp;</div>
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
       </div>
-      <!-- end of main -->
-      <div class="footer">
-        <nav class="footer-nav">
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="/signup">Sign Up</a></li>
-            <li><a href="/login">LogIn</a></li>
-          </ul>
-        </nav>
-        <p class="copy">Copyright &copy; 2012 <span>|</span> Movie Trivia!. Design by <a target="_blank" href="http://chocotemplates.com">ChocoTemplates</a></p>
+    </div><!-- End Slide gallery -->
+    <h3 class="text-center">Movie Trivia Game!</h3>
+    <!-- Thumbnails -->
+    <div class="container thumbs">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="/stylesheets/16.gif" alt="" class="img-circle">
+          <div class="caption">
+            <h3 class="text-center">Skyfall</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+            <div class="btn-toolbar text-center">
+              <a href="#" role="button" class="btn btn-success">Details</a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <!-- end of shell -->
-  </div>
-</div>
-<!-- end of wrapper -->
-</body>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="/stylesheets/2.gif" alt="" class="img-circle">
+          <div class="caption">
+            <h3 class="text-center">The Hunger Games</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+            <div class="btn-toolbar text-center">
+              <a href="#" role="button" class="btn btn-success">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="/stylesheets/4.gif" alt="" class="img-circle">
+          <div class="caption">
+            <h3 class="text-center">Scream</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+            <div class="btn-toolbar text-center">
+              <a href="#" role="button" class="btn btn-success">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Thumbnails -->
+    <!-- Content -->
+    <div class="container">
+      <h3 class="text-center">Welcome to Movie Trivia Game!</h3>
+      <p>
+      Hello World!
+      </p>
+    </div><!-- End Content -->
+    <!-- Footer -->
+    <div class="footer text-center">
+        <p>&copy; 2014 Zoo Planet. All Rights Reserved. Proudly created by <a class="green" href="http://bootshape.com">Bootshape.com</a></p>
+    </div><!-- End Footer -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- // <script src="https://code.jquery.com/jquery.js"></script> -->
+    <script src="/stylesheets/zoo-planet/html/js/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/stylesheets/zoo-planet/html/js/bootstrap.min.js"></script>
+    <script src="/stylesheets/zoo-planet/html/js/bootshape.js"></script>
+  </body>
 </html>
