@@ -138,6 +138,7 @@ function hello(req, res) {
                         optionCollection2.push(result);
                         
                         totalOptions.push(optionCollection2);
+                        totalOptions.push(["hello"]);
                         //res.render('game.ejs', {totalOptions: totalOptions});       
                         
                         client.end();
