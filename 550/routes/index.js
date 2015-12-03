@@ -5,7 +5,7 @@ var router = express.Router();
 //     res.render('game.ejs', {result: totalOptions});
 // });
 var totalOptions = [];
-function generateResponse(req, res) {
+function hello(req, res) {
     console.log("request " + req.query.test)
     var pg = require('pg');
     var connectionString = 'postgres://groupjjsr:groupjjsrpassword@groupjjsr.cup5jjaxtuqn.us-west-2.rds.amazonaws.com:5432/groupjjsr';
@@ -173,7 +173,7 @@ module.exports = function(app, passport) {
     });
 
     app.get('/game', function(req, res) {
-    	generateResponse(req, res);
+    	hello(req, res);
     	// TODO game.js must be invoked first
     	
         // render the page and pass in any flash data if it exists
