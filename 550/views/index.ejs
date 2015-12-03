@@ -1,53 +1,211 @@
-<!-- views/index.ejs -->
-<!doctype html>
-<html>
-
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
-    <style>
-        body        { padding-top:80px; }
-    </style>
-    
-    
-    
-    
-    
+<title>Movie Trivia!</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="/stylesheets/image/x-icon" href="/stylesheets/css/images/favicon.ico">
+<link rel="stylesheet" href="/stylesheets/css/style.css" type="text/css" media="all">
+<link rel="stylesheet" href="/stylesheets/css/colorbox.css" type="text/css" media="all">
+<script src="/stylesheets/js/jquery-1.8.0.min.js"></script>
+<script src="/stylesheets/js/jquery.colorbox-min.js"></script>
+<!--[if lt IE 9]><script src="/stylesheets/js/modernizr.custom.js"></script><![endif]-->
+<script src="/stylesheets/js/functions.js"></script>
 </head>
-
-
-
 <body>
 
 
-	<p>
-	
-	
-	<nav class="navbar navbar-default">
-	   <div class="container-fluid">
-	    <div class="navbar-header">
-	      <a class="navbar-brand" href="/">Account </a>
-	    </div>
-	     <div>
-	      <ul class="nav navbar-nav">
-	        <li><a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a></li>
-	      	<li><a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Login </a></li>
-	      </ul>
-	    </div>
-	   </nav>
-	
-	</p>
-	   
-    
-    <form method="get" action="/login">
-    <p>
-	<button type="submit" class="btn btn-warning btn-lg">Play Game</button>
-	</p>
-	</form>
-	
+<!-- wrapper -->
+<div id="wrapper">
+  <div class="light-bg">
+    <!-- shell -->
+    <div class="shell">
+      <!-- header -->
+      <div class="header">
+        <!-- socials -->
+        <div class="socials"> <a href="https://www.facebook.com" class="facebook-ico">facebook-ico</a> <a href="https://twitter.com" class="twitter-ico">twitter-ico</a> <a href="https://www.youtube.com" class="you-tube-ico">you-tube-ico</a> </div>
+        <!-- end of socials -->
+        <h1 id="logo"><a href="#">Movie Trivia!</a></h1>
+        <!-- navigation -->
+		<nav id="navigation">
+          <ul>
+            <li><a href="#">HOME <span>HOME</span></a> </li>
+            <li><a href="/signup">SIGN UP <span>SIGN UP</span></a></li>
+            <li><a href="/login">LOG IN<span>LOG IN</span></a></li>
+          </ul>
+        </nav>
+        <!-- end of navigation -->
+        <div class="cl">&nbsp;</div>
+      </div>
+      <!-- end of header -->
+      <!-- main -->
+      <div class="main">
+        <!-- content -->
+        <section class="content">
+          <!-- post -->
+          <div class="post">
+            <!-- post-inner -->
+            <div class="post-inner">
+              <header>
+                <h2><a href="#">Skyfall</a></h2>
+                <p class="tags"><a href="#">THRILLER</a> <a href="#">ACTION</a> </p>
+                <div class="cl">&nbsp;</div>
+              </header>
+              <div class="img-holder"> <a href="#"><img src="/stylesheets/17.gif" alt=""></a> <a href="/stylesheets/17.gif" class="btn-full-image popup"><span>FULL IMAGE</span></a> </div>
+              <!-- meta -->
+              
+              <div class="meta">
+                <p class="date">APRIL 09, 2012 by <a href="https://en.wikipedia.org/wiki/Sam_Mendes">Sam Mendes</a></p>
+                <div class="right">
+                  <div class="rating-holder">
+                    <p>RATING</p>
+                    <div class="rating"> <span style="width: 100%;"></span> </div>
+                  </div>
+                 
+                 <!-- <a href="#" class="comments">59 comments</a> --> </div>
+                <div class="cl">&nbsp;</div>
+              </div>
+              <!-- end of meta -->
+              <!-- post-cnt -->
+              <div class="post-cnt">
+                <p>
+                When James Bond's (Daniel Craig) latest assignment goes terribly wrong, it leads to a calamitous turn of events: Undercover agents around the world are exposed, and MI6 is attacked, forcing M (Judi Dench) to relocate the agency. With MI6 now compromised inside and out, M turns to the one man she can trust: Bond. Aided only by a field agent (Naomie Harris), Bond takes to the shadows and follows a trail to Silva (Javier Bardem), a man from M's past who wants to settle an old score.
+                 </p>
+                 <!-- <a href="#" class="more">CONTINUE READING</a> </div> -->
+              <!-- end of post-cnt -->
+            </div>
+            <!-- post-inner -->
+          </div>
+          <!-- end of post -->
+          <!-- post -->
+          <div class="post">
+            <!-- post-inner -->
+            <div class="post-inner">
+              <header>
+                <h2><a href="#">Minions</a></h2>
+                <p class="tags"><a href="#">FAMILY</a> <a href="#">COMEDY</a> <a href="#">ANIMATION</a> </p>
+                <div class="cl">&nbsp;</div>
+              </header>
+              <div class="img-holder"> <a href="#"><img src="/stylesheets/css/images/post-img2.jpg" alt=""></a> <a href="css/images/post-img2.jpg" class="btn-full-image popup"><span>FULL IMAGE</span></a> </div>
+              <!-- meta -->
+              <div class="meta">
+                <p class="date">JULY 10, 2015 by <a href="https://en.wikipedia.org/wiki/Pierre_Coffin">PIERRE COFFIN, </a><a href="https://en.wikipedia.org/wiki/Kyle_Balda">KYLE BALDA</a></p>
+                <div class="right">
+                  <div class="rating-holder">
+                    <p>RATING</p>
+                    <div class="rating"> <span style="width: 50%;"></span> </div>
+                  </div>
+                  <!-- <a href="#" class="comments">59 comments</a> --> </div>
+                <div class="cl">&nbsp;</div>
+              </div>
+              <!-- end of meta -->
+              <!-- post-cnt -->
+              <div class="post-cnt">
+                <p>
+                  Evolving from single-celled yellow organisms at the dawn of time, Minions live to serve, but find themselves working for a continual series of unsuccessful masters, from T. Rex to Napoleon. Without a master to grovel for, the Minions fall into a deep depression. But one minion, Kevin, has a plan; accompanied by his pals Stuart and Bob, Kevin sets forth to find a new evil boss for his brethren to follow. Their search leads them to Scarlet Overkill, the world's first-ever super-villainess.
+                </p>
+               <!-- <a href="#" class="more">CONTINUE READING</a> </div> -->
+              <!-- end of post-cnt -->
+            </div>
+            <!-- post-inner -->
+          </div>
+          <!-- end of post -->
+          <!-- post -->
+          <div class="post">
+            <!-- post-inner -->
+            <div class="post-inner">
+              <header>
+                <h2><a href="#">The Hunger Games</a></h2>
+                <p class="tags"><a href="#">FANTASY</a>  <a href="#">SCIENCE FICTION</a> </p>
+                <div class="cl">&nbsp;</div>
+              </header>
+              <div class="img-holder"> <a href="#"><img src="/stylesheets/2.gif" alt=""></a> <a href="/stylesheets/2.gif" class="btn-full-image popup"><span>FULL IMAGE</span></a> </div>
+              <!-- meta -->
+              <div class="meta">
+                <p class="date">NOVEMBER 16, 2015 by <a href="https://en.wikipedia.org/wiki/Francis_Lawrence">Francis Lawrence</a></p>
+                <div class="right">
+                  <div class="rating-holder">
+                    <p>RATING</p>
+                    <div class="rating"> <span style="width: 70%;"></span> </div>
+                  </div>
+                  <!--<a href="#" class="comments">59 comments</a> --></div>
+                <div class="cl">&nbsp;</div>
+              </div>
+              <!-- end of meta -->
+              <!-- post-cnt -->
+              <div class="post-cnt">
+                <p>
+                Realizing the stakes are no longer just for survival, Katniss Everdeen (Jennifer Lawrence) teams up with her closest friends, including Peeta (Josh Hutcherson), Gale (Liam Hemsworth) and Finnick for the ultimate mission. Together, they leave District 13 to liberate the citizens of war-torn Panem and assassinate President Snow, who's obsessed with destroying Katniss. What lies ahead are mortal traps, dangerous enemies and moral choices that will ultimately determine the future of millions.
+                </p>
+               <!-- <a href="#" class="more">CONTINUE READING</a> --> </div>
+              <!-- end of post-cnt -->
+            </div>
+            <!-- post-inner -->
+          </div>
+          <!-- end of post -->
+          <!--
+          <div class="pagination">
+            <ul>
+              <li class="laquo"><a href="#"><span></span></a></li>
+              <li class="active"><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li class="raquo"><a href="#"><span></span></a></li>
+              <li><a href="#">10</a></li>
+              <li class="dots">. . .</li>
+              <li><a href="#">last</a></li>
+            </ul>
+          </div>
+          -->
+        </section>
+        <!-- end of content -->
+        <!-- sidebar -->
+        <aside class="sidebar">
+        
+          <div class="widget">
+            <h3 class="widgettitle">Home</h3>
+            <ul>
+              <li><a href="#">Home</a></li>
+            </ul>
+          </div>
+        
+          <div class="widget">
+            <h3 class="widgettitle">Account</h3>
+            <ul>
+              <li><a href="/signup">Sign Up</a></li>
+              <li><a href="/login">LogIn</a></li>
+            </ul>
+          </div>
+          
+          <div class="widget socials-widget">
+            <h3 class="widgettitle">Get Connected</h3>
+            <ul>
+              <li><a href="https://www.facebook.com" class="facebook-ico"><span></span>Facebook</a></li>
+              <li><a href="https://twitter.com" class="twitter-ico"><span></span>Twitter</a></li>
+              <li><a href="https://www.linkedin.com" class="linkedin-ico"><span></span>Linkedin</a></li>
+              <li><a href="https://www.youtube.com" class="you-tube-ico"><span></span>Youtube</a></li>
+            </ul>
+          </div>
+        </aside>
+        <!-- end of sidebar -->
+        <div class="cl">&nbsp;</div>
+      </div>
+      <!-- end of main -->
+      <div class="footer">
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="/signup">Sign Up</a></li>
+            <li><a href="/login">LogIn</a></li>
+          </ul>
+        </nav>
+        <p class="copy">Copyright &copy; 2012 <span>|</span> Movie Trivia!. Design by <a target="_blank" href="http://chocotemplates.com">ChocoTemplates</a></p>
+      </div>
+    </div>
+    <!-- end of shell -->
+  </div>
+</div>
+<!-- end of wrapper -->
 </body>
-
-
 </html>
