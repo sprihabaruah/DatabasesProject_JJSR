@@ -78,15 +78,12 @@ function hello(req, res) {
 //						res.render('login.ejs', {result: result});
 						// client.end();
 						totalOptions.push(optionCollection);
-						
-						//to delete
-						console.log(totalOptions);
 					});
 				});
 			});
 		});
 		
-		
+		console.log(totalOptions);
 
         client.query('SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'Titanic\';', function(err, result) {
             if(err) {
@@ -146,15 +143,11 @@ function hello(req, res) {
                         //res.render('game.ejs', {totalOptions: totalOptions});       
                         
                         client.end();
-                        
-                        
-                        //to delete
-                        console.log(totalOptions);
                     });
                 });
             });
         });
-		
+		console.log(totalOptions);
         
         
         

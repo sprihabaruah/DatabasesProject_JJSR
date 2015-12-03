@@ -25,9 +25,8 @@ function hello(req, res) {
 				return console.error('error running query', err);
 			}
 			// retrieving the first out of the first 10 queries. 
-//			console.log(result);
+			// // console.log(result);
 			// // console.log(result.rowCount);
-			
 			var randomIndex = (Math.floor(Math.random() * (result.rowCount - 0) + 0));
 			// console.log(result.rows[randomIndex]);
 			
@@ -77,16 +76,11 @@ function hello(req, res) {
 						optionCollection.push(result);
 //						res.render('login.ejs', {result: result});
 						// client.end();
-						totalOptions.push(optionCollection);
-						
-						//to delete
-						console.log(totalOptions);
 					});
 				});
 			});
 		});
-		
-		
+		totalOptions.push(optionCollection)
 
         client.query('SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'Titanic\';', function(err, result) {
             if(err) {
@@ -146,15 +140,11 @@ function hello(req, res) {
                         //res.render('game.ejs', {totalOptions: totalOptions});       
                         
                         client.end();
-                        
-                        
-                        //to delete
-                        console.log(totalOptions);
                     });
                 });
             });
         });
-		
+        
         
         
         
