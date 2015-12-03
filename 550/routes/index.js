@@ -5,14 +5,14 @@ var router = express.Router();
 //     res.render('game.ejs', {result: totalOptions});
 // });
 var totalOptions = [];
+var optionCollection = [];
+var optionCollection2 = [];
 
 function hello(req, res) {
     console.log("request " + req.query.test)
     var pg = require('pg');
     var connectionString = 'postgres://groupjjsr:groupjjsrpassword@groupjjsr.cup5jjaxtuqn.us-west-2.rds.amazonaws.com:5432/groupjjsr';
     var client = new pg.Client(connectionString);
-    var optionCollection = [];
-    var optionCollection2 = [];
     
     
 	client.connect(function(err) {
