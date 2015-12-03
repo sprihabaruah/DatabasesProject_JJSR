@@ -155,10 +155,6 @@ function hello(req, res) {
         
 //      console.log(totalOptions[0])
         
-        getResults(req, function(totalOptions) {
-            
-        });
-        
     });
 }
 
