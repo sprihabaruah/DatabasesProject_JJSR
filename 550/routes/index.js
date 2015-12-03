@@ -9,6 +9,11 @@ var optionCollection = [];
 var optionCollection2 = [];
 
 function hello(req, res) {
+    if (totalOptions.length != 0) {
+        totalOptions = [];
+        optionCollection = [];
+        optionCollection2 = [];
+    }
     console.log("request " + req.query.test)
     var pg = require('pg');
     var connectionString = 'postgres://groupjjsr:groupjjsrpassword@groupjjsr.cup5jjaxtuqn.us-west-2.rds.amazonaws.com:5432/groupjjsr';
