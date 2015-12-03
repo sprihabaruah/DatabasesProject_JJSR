@@ -9,6 +9,8 @@ var optionCollection = [];
 var optionCollection2 = [];
 
 function hello(req, res) {
+	//NOTE the following
+	//console.log(req.query.options1 + "!!!!");
     if (totalOptions.length != 0) {
         totalOptions = [];
         optionCollection = [];
