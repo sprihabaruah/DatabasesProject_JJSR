@@ -170,12 +170,6 @@ function hello(req, res) {
 //      console.log(totalOptions[0])
         
     });
-
-if (totalOptions.length == 0) {
-            fakeOptions = ["test1", "test2", "test3", "test4"];
-            totalOptions.push(fakeOptions);
-        }
-
 }
 
 
@@ -191,7 +185,11 @@ module.exports = function(app, passport) {
     app.get('/game', function(req, res) {
     	hello(req, res);
     	// TODO game.js must be invoked first
-    	
+    	if (totalOptions.length == 0) {
+            fakeOptions = ["test1", "test2", "test3", "test4"];
+            totalOptions.push(fakeOptions);
+        }
+
         // render the page and pass in any flash data if it exists
         res.render('game.ejs', { message: req.flash('gameMessage'), totalOptions: totalOptions}); 
     });
