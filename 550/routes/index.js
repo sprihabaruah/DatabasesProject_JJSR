@@ -176,7 +176,6 @@ if (totalOptions.length == 0) {
             totalOptions.push(fakeOptions);
         }
 
-callback();
 }
 
 
