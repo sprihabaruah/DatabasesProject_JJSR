@@ -6,7 +6,6 @@ module.exports = function(app, passport) {
     // Game ===============================
     // =====================================
     // show the game page
-	console.log("hello");
 	
     app.get('/game', function(req, res) {
 

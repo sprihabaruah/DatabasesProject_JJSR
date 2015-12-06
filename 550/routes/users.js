@@ -18,6 +18,7 @@ var userSchema = mongoose.Schema({
     local            : {
         email        : String,
         password     : String,
+        scores		 : [], 
     },
     facebook         : {
         id           : String,
@@ -50,6 +51,15 @@ userSchema.methods.generateHash = function(password) {
 userSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.local.password);
 };
+// get score list for a user
+userSchema.methods.getScores = function(user) {
+	
+	
+	
+	
+};
 
 // create the model for users and expose it to our app
 module.exports = mongoose.model('User', userSchema);
+
+
