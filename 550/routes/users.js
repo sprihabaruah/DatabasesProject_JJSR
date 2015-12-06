@@ -55,16 +55,14 @@ userSchema.methods.validPassword = function(password) {
 userSchema.methods.getScores = function(user) {
 	
 	// go get score for current user
-	
-	
-	
+	return user.scores;
 	
 };
 //get score list for a user
-userSchema.methods.addScore = function(user) {
+userSchema.methods.addScore = function(user, score) {
 	
-	// add the newest score to current user's score list.
-	
+	// add the newest score to current user score list.
+	user.scores.push(score);
 	
 	
 	
