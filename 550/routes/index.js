@@ -269,7 +269,7 @@ function titanicGame (req, res) {
         res.render('score.ejs', {finalScore: finalScore});
         return;
     }
-    currentQuestion = Math.floor((Math.random() * unusedQuestionNumbers.length));
+    currentQuestion = unusedQuestionNumbers[Math.floor((Math.random() * unusedQuestionNumbers.length))];
     displayQuestion(currentQuestion, req, res);
 }
 
