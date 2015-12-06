@@ -54,10 +54,22 @@ userSchema.methods.validPassword = function(password) {
 // get score list for a user
 userSchema.methods.getScores = function(user) {
 	
+	// go get score for current user
+	
 	
 	
 	
 };
+//get score list for a user
+userSchema.methods.addScore = function(user) {
+	
+	// add the newest score to current user's score list.
+	
+	
+	
+	
+};
+
 
 // create the model for users and expose it to our app
 module.exports = mongoose.model('User', userSchema);
