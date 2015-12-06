@@ -21,6 +21,10 @@ module.exports = function(app, passport) {
         titanicGame(req, res);
     });
 
+    app.get('/checkAnswer', function(req, res) {
+        processUserAnswer(req, res);
+    });
+
     
     // =====================================
     // LOGIN ===============================
@@ -28,16 +32,12 @@ module.exports = function(app, passport) {
     // show the login form
     app.get('/login', function(req, res) {
 
-    	
-    	
         // render the page and pass in any flash data if it exists
         res.render('loginPage.ejs', { message: req.flash('loginMessage') }); 
     });
 
     // process the login form
     app.post('/login', passport.authenticate('local-login', {
-    	
-    	
         successRedirect : '/profile', // redirect to the secure profile section
         failureRedirect : '/login', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
@@ -235,28 +235,36 @@ function getRandomizedOptionList (questionNumber) {
 
 
 //returns 1 if the User selected the right option for this question. 0 otherwise
-function processUserAnswer (questionNumber, req, res) {
-    if (Object.keys(req.query).length == 0) return; //user has given no answer (eg: when first question loads)
+function processUserAnswer (req, res) {
+    //if (Object.keys(req.query).length == 0) return; //user has given no answer (eg: when first question loads)
     userSelection = req.query.userSelection;
-
+    questionNumber = req.query.questionNumber;
+    var correctAnswerText = titanic[questionNumber]["right_ans"]["text"];
     //TODO: test
     console.log("User Selection Option Number: "+userSelection);
 
     unusedQuestionNumbers.splice(unusedQuestionNumbers.indexOf(questionNumber), 1); //remove this question from the list of unused questions
-    if (userSelection == titanic[questionNumber]["right_ans"]["optionNumber"]) return 1;
-    else return 0;
+    if (userSelection == titanic[questionNumber]["right_ans"]["optionNumber"]) {
+        currentScore += 1;
+        res.render('rightAnswer.ejs', {correctAnswerText : correctAnswerText});
+        return;
+    }
+    else {
+        res.render('wrongAnswer.ejs', {correctAnswerText : correctAnswerText});
+        return 0;
+    }
 }
 
 function displayQuestion (questionNumber, req, res) {
     currentQuestionText = titanic[questionNumber]["question"]["text"];
     currentOptions = getRandomizedOptionList(questionNumber);
-    res.render('game.ejs', { message: req.flash('gameMessage'), currentOptions: currentOptions, currentQuestionText: currentQuestionText});
+    res.render('game.ejs', { message: req.flash('gameMessage'), currentOptions: currentOptions, currentQuestionText: currentQuestionText, questionNumber: questionNumber});
 }
 
 function titanicGame (req, res) {
     
-    if (!newGame) currentScore += processUserAnswer(currentQuestion, req, res); //no need to process answers for new game
-    newGame = false;
+    //if (!newGame) currentScore += processUserAnswer(currentQuestion, req, res); //no need to process answers for new game
+    //newGame = false;
 
     if (unusedQuestionNumbers.length == 0) { //end of game
         var finalScore = currentScore;
@@ -268,16 +276,13 @@ function titanicGame (req, res) {
         currentOptions = [];
         currentQuestionText = ""
         unusedQuestionNumbers = [0,1]; //TODO make this NOT hardcoded. Should be equal to the number of questions each game has
-        newGame = true;
 
-        
-        
+        //push final score to this user's profile
         res.render('score.ejs', {finalScore: finalScore});
         return;
     }
     currentQuestion = unusedQuestionNumbers[Math.floor((Math.random() * unusedQuestionNumbers.length))];
     displayQuestion(currentQuestion, req, res);
 }
-
 
 
