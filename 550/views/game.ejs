@@ -89,7 +89,7 @@ Contact: http://www.bootshape.com/contact.php
     </div><!-- End Navigation bar -->
 
  
-    <form method="get" action="/game">
+    <form method="get" action="/checkAnswer">
 
     <h3 id="q1"><%= currentQuestionText%></h3>
  	
@@ -99,6 +99,9 @@ Contact: http://www.bootshape.com/contact.php
 	<p><input type="radio", name = "userSelection", value="1"><%= currentOptions[1]%></input></p>
 	<p><input type="radio", name = "userSelection", value="2"><%= currentOptions[2]%></input></p>
 	<p><input type="radio", name = "userSelection", value="3"><%= currentOptions[3]%></input></p>
+
+
+	<p><input type="radio", name = "questionNumber", value=<%=questionNumber%> checked hidden></input></p>
 	<p><button type="submit" onclick="test()" class="btn btn-warning btn-lg">Submit</button></p>
 	
 

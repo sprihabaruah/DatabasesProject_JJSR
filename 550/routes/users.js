@@ -53,7 +53,6 @@ userSchema.methods.validPassword = function(password) {
 };
 // get score list for a user
 userSchema.methods.getScores = function(user) {
-	
 	// go get score for current user
 	return user.scores;
 	
