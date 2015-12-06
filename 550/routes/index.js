@@ -233,11 +233,7 @@ function getRandomizedOptionList (questionNumber) {
 //returns 1 if the User selected the right option for this question. 0 otherwise
 function processUserAnswer (questionNumber, req, res) {
     if (Object.keys(req.query).length == 0) return; //user has given no answer (eg: when first question loads)
-    userSelection = -1;
-    if (req.query["0"] == "on") userSelection = 0;
-    else if (req.query["1"] == "on") userSelection = 1;
-    else if (req.query["2"] == "on") userSelection = 2;
-    else if (req.query["3"] == "on") userSelection = 3;
+    userSelection = req.query.userSelection;
 
     //TODO: test
     console.log("User Selection Option Number: "+userSelection);
