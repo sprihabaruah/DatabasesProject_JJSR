@@ -177,6 +177,8 @@ titanic_q0["wrong_ans3"] = {"query": 'SELECT p.name FROM personinfo p INNER JOIN
 queryList.push(titanic_q0["wrong_ans3"]["query"]);
 resultVariableList.push(titanic_q0["wrong_ans3"]);
 
+titanic_q0["movie"] = "Titanic"; //for Bing search
+
 titanic.push(titanic_q0);
 //************* END: Code for Titanic Q0 **************
 
@@ -199,6 +201,8 @@ resultVariableList.push(titanic_q1["wrong_ans2"]);
 titanic_q1["wrong_ans3"] = {"query": 'Select p.name From movieinfo m, personinfo p Where m.title != \'Titanic\' and m.directorid = p.personid ORDER BY RANDOM() LIMIT 1;'};
 queryList.push(titanic_q1["wrong_ans3"]["query"]);
 resultVariableList.push(titanic_q1["wrong_ans3"]);
+
+titanic_q1["movie"] = "Titanic"; //for Bing search
 
 titanic.push(titanic_q1);
 //************* END: Code for Titanic Q1 **************
