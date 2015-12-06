@@ -91,15 +91,9 @@ Contact: http://www.bootshape.com/contact.php
  
     <form method="get" action="/game">
 
-    <h3 id="q1"><%= currentQuestionText%></h3>
- 	
- 
- 	
- 	<p><input type="radio", name = "userSelection", value="0"><%= currentOptions[0]%></input></p>
-	<p><input type="radio", name = "userSelection", value="1"><%= currentOptions[1]%></input></p>
-	<p><input type="radio", name = "userSelection", value="2"><%= currentOptions[2]%></input></p>
-	<p><input type="radio", name = "userSelection", value="3"><%= currentOptions[3]%></input></p>
-	<p><button type="submit" onclick="test()" class="btn btn-warning btn-lg">Submit</button></p>
+    <p>You got the question wrong:(</p>
+    
+	<p><button type="submit" onclick="test()" class="btn btn-warning btn-lg">Go To Next Question</button></p>
 	
 
 	<script type="text/javascript">
