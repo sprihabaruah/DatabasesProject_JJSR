@@ -1,188 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-// router.get('/game', function(req, res, next) {
-//     res.render('game.ejs', {result: totalOptions});
-// });
-var totalOptions = [];
-var optionCollection = [];
-var optionCollection2 = [];
-
-function hello(req, res) {
-	//NOTE the following
-	//console.log(req.query.options1 + "!!!!");
-    if (totalOptions.length != 0) {
-        totalOptions = [];
-        optionCollection = [];
-        optionCollection2 = [];
-    }
-    console.log("request " + req.query.test)
-    var pg = require('pg');
-    var connectionString = 'postgres://groupjjsr:groupjjsrpassword@groupjjsr.cup5jjaxtuqn.us-west-2.rds.amazonaws.com:5432/groupjjsr';
-    var client = new pg.Client(connectionString);
-    
-    
-	client.connect(function(err) {
-		if(err) {
-			return console.error('could not connect to postgres', err);
-		}
-		
-		client.query('SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'300\';', function(err, result) {
-			if(err) {
-				return console.error('error running query', err);
-			}
-			// retrieving the first out of the first 10 queries. 
-//			console.log(result);
-			// // console.log(result.rowCount);
-			
-			var randomIndex = (Math.floor(Math.random() * (result.rowCount - 0) + 0));
-			// console.log(result.rows[randomIndex]);
-			
-			result = result.rows[randomIndex];
-			optionCollection.push(result);
-//			res.render('login.ejs', {result: result});
-			// client.end();
-			client.query('SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'Titanic\';', function(err, result) {
-				if(err) {
-					return console.error('error running query', err);
-				}
-				// retrieving the first out of the first 10 queries. 
-				// // console.log(result.rowCount);
-				var randomIndex = (Math.floor(Math.random() * (result.rowCount - 0) + 0));
-				// // console.log(result);
-				// console.log(result.rows[randomIndex]);
-				
-				result = result.rows[randomIndex];
-				optionCollection.push(result);
-//				res.render('login.ejs', {result: result});
-				// client.end();
-				
-				client.query('SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'The Fast and the Furious\';', function(err, result) {
-					if(err) {
-						return console.error('error running query', err);
-					}
-					// retrieving the first out of the first 10 queries. 
-					// // console.log(result.rowCount);
-					var randomIndex = (Math.floor(Math.random() * (result.rowCount - 0) + 0));
-					// console.log(result.rows[randomIndex]);
-					
-					result = result.rows[randomIndex];
-					optionCollection.push(result);
-//					res.render('login.ejs', {result: result});
-					// client.end();
-					
-					client.query('SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'The Boondock Saints\';', function(err, result) {
-						if(err) {
-							return console.error('error running query', err);
-						}
-						// retrieving the first out of the first 10 queries. 
-						// // console.log(result.rowCount);
-						var randomIndex = (Math.floor(Math.random() * (result.rowCount - 0) + 0));
-						// console.log(result.rows[randomIndex]);
-						
-						result = result.rows[randomIndex];
-						optionCollection.push(result);
-//						res.render('login.ejs', {result: result});
-						// client.end();
-						totalOptions.push(optionCollection);
-						
-						//to delete
-						console.log(totalOptions);
-					});
-				});
-			});
-		});
-		
-		
-
-        client.query('SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'Titanic\';', function(err, result) {
-            if(err) {
-                return console.error('error running query', err);
-            }
-            // retrieving the first out of the first 10 queries. 
-            // // console.log(result);
-            // // console.log(result.rowCount);
-            var randomIndex = (Math.floor(Math.random() * (result.rowCount - 0) + 0));
-            // console.log(result.rows[randomIndex]);
-            
-            result = result.rows[randomIndex];
-            optionCollection2.push(result);
-//          res.render('login.ejs', {result: result});
-            // client.end();
-            client.query('SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'Harry Potter and the Chamber of Secrets\';', function(err, result) {
-                if(err) {
-                    return console.error('error running query', err);
-                }
-                // retrieving the first out of the first 10 queries. 
-                // // console.log(result.rowCount);
-                var randomIndex = (Math.floor(Math.random() * (result.rowCount - 0) + 0));
-                // // console.log(result);
-                // console.log(result.rows[randomIndex]);
-                
-                result = result.rows[randomIndex];
-                optionCollection2.push(result);
-//              res.render('login.ejs', {result: result});
-                // client.end();
-                client.query('SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'The Lord of the Rings: The Two Towers\';', function(err, result) {
-                    if(err) {
-                        return console.error('error running query', err);
-                    }
-                    // retrieving the first out of the first 10 queries. 
-                    // // console.log(result.rowCount);
-                    var randomIndex = (Math.floor(Math.random() * (result.rowCount - 0) + 0));
-                    // console.log(result.rows[randomIndex]);
-                    
-                    result = result.rows[randomIndex];
-                    optionCollection2.push(result);
-//                  res.render('login.ejs', {result: result});
-                    // client.end();
-                    client.query('SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'The Bourne Identity\';', function(err, result) {
-                        if(err) {
-                            return console.error('error running query', err);
-                        }
-                        // retrieving the first out of the first 10 queries. 
-                        // // console.log(result.rowCount);
-//                      console.log(result.rows[0].name)
-                        var randomIndex = (Math.floor(Math.random() * (result.rowCount - 0) + 0));
-                        // console.log("TESTING" + result.rows[randomIndex]);
-                        
-                        result = result.rows[randomIndex];
-                        optionCollection2.push(result);
-                        
-                        totalOptions.push(optionCollection2);
-                        //res.render('game.ejs', {totalOptions: totalOptions});       
-                        
-                        client.end();
-                        
-                        
-                        //to delete
-                        console.log(totalOptions);
-
-                        if (totalOptions.length == 0) {
-                            fakeOptions = ["test1", "test2", "test3", "test4"];
-                            totalOptions.push(fakeOptions);
-                        }
-
-                        // render the page and pass in any flash data if it exists
-                        res.render('game.ejs', { message: req.flash('gameMessage'), totalOptions: totalOptions}); 
-                    });
-                });
-            });
-        });
-		
-        
-        
-        
-        
-        
-//      console.log(optionCollection2[0])
-        
-//      console.log(totalOptions[0])
-        
-    });
-}
-
-
 module.exports = function(app, passport) {
 
     // =====================================
@@ -193,9 +11,14 @@ module.exports = function(app, passport) {
     });
 
     app.get('/game', function(req, res) {
-    	hello(req, res);
-    	// TODO game.js must be invoked first
-    	
+        titanicGame(req, res);
+        // TODO game.js must be invoked first
+        //res.render('game.ejs', { message: req.flash('gameMessage'), totalOptions: totalOptions}); 
+        
+    });
+
+    app.get('/titanic', function(req, res) {
+        titanicGame(req, res);
     });
 
     
@@ -279,3 +102,176 @@ function isLoggedIn(req, res, next) {
     // if they aren't redirect them to the home page
     res.redirect('/');
 }
+
+
+
+
+
+
+
+//####################################################################################################
+//
+//                                          TITANIC GAME STUFF
+//
+//####################################################################################################
+
+var pg = require('pg');
+var connectionString = 'postgres://groupjjsr:groupjjsrpassword@groupjjsr.cup5jjaxtuqn.us-west-2.rds.amazonaws.com:5432/groupjjsr';
+var client = new pg.Client(connectionString);
+
+function populateQueryResults(client, dbQueryList, queryResultVariableList) {
+    client.connect(function(err) {
+        if(err) return console.error('could not connect to postgres', err);
+        seriallyExecuteQueries(client, dbQueryList, queryResultVariableList);
+    });
+}
+
+
+function seriallyExecuteQueries (client, dbQueryList, queryResultVariableList) {
+    if (dbQueryList.length == 0) {
+        client.end();
+        return;
+    }
+
+    dbQuery = dbQueryList.shift(); //get first element of dbQueryList
+    queryResultVariable = queryResultVariableList.shift();
+
+    client.query(dbQuery, function(err, result) {
+            if(err) return console.error('error running query', err);
+            queryResultVariable["text"] = result.rows[0].name;
+            seriallyExecuteQueries(client, dbQueryList, queryResultVariableList);
+        });
+}
+
+
+var currentQuestion = -1;
+var currentScore = 0;
+var currentOptions = [];
+var currentQuestionText = ""
+var unusedQuestionNumbers = [0,1]; //TODO: make this NOT hardcoded (should be equal to the number of questions the current game has)
+var newGame = true;
+
+var queryList = [];
+var resultVariableList = []; //list of **variables** where results of corresponding queries in queryList will be stored
+
+var titanic = [];
+
+
+//************* START: Code for Titanic Q0 **************
+var titanic_q0 = {};
+titanic_q0["question"] = {"text": 'Which of the following actors played a role in the movie Titanic?'};
+
+titanic_q0["right_ans"] = {"query":'SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'Titanic\' and m.tagline = \'Nothing on Earth could come between them.\' ORDER BY RANDOM() LIMIT 1;'};
+queryList.push(titanic_q0["right_ans"]["query"]);
+resultVariableList.push(titanic_q0["right_ans"]);
+
+titanic_q0["wrong_ans1"] = {"query": 'SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title != \'Titanic\' ORDER BY RANDOM() LIMIT 1;'};
+queryList.push(titanic_q0["wrong_ans1"]["query"]);
+resultVariableList.push(titanic_q0["wrong_ans1"]);
+
+titanic_q0["wrong_ans2"] = {"query": 'SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title != \'Titanic\' ORDER BY RANDOM() LIMIT 1;'};
+queryList.push(titanic_q0["wrong_ans2"]["query"]);
+resultVariableList.push(titanic_q0["wrong_ans2"]);
+
+titanic_q0["wrong_ans3"] = {"query": 'SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title != \'Titanic\' ORDER BY RANDOM() LIMIT 1;'};
+queryList.push(titanic_q0["wrong_ans3"]["query"]);
+resultVariableList.push(titanic_q0["wrong_ans3"]);
+
+titanic.push(titanic_q0);
+//************* END: Code for Titanic Q0 **************
+
+//************* START: Code for Titanic Q1 **************
+var titanic_q1 = {};
+titanic_q1["question"] = {"text": 'Who is the director of the movie Titanic?'};
+
+titanic_q1["right_ans"] = {"query": 'Select p.name From movieinfo m, personinfo p Where m.title = \'Titanic\' and m.directorid = p.personid and m.tagline = \'Nothing on Earth could come between them.\';'};
+queryList.push(titanic_q1["right_ans"]["query"]);
+resultVariableList.push(titanic_q1["right_ans"]);
+
+titanic_q1["wrong_ans1"] = {"query": 'Select p.name From movieinfo m, personinfo p Where m.title != \'Titanic\' and m.directorid = p.personid ORDER BY RANDOM() LIMIT 1;'};
+queryList.push(titanic_q1["wrong_ans1"]["query"]);
+resultVariableList.push(titanic_q1["wrong_ans1"]);
+
+titanic_q1["wrong_ans2"] = {"query": 'Select p.name From movieinfo m, personinfo p Where m.title != \'Titanic\' and m.directorid = p.personid ORDER BY RANDOM() LIMIT 1;'};
+queryList.push(titanic_q1["wrong_ans2"]["query"]);
+resultVariableList.push(titanic_q1["wrong_ans2"]);
+
+titanic_q1["wrong_ans3"] = {"query": 'Select p.name From movieinfo m, personinfo p Where m.title != \'Titanic\' and m.directorid = p.personid ORDER BY RANDOM() LIMIT 1;'};
+queryList.push(titanic_q1["wrong_ans3"]["query"]);
+resultVariableList.push(titanic_q1["wrong_ans3"]);
+
+titanic.push(titanic_q1);
+//************* END: Code for Titanic Q1 **************
+
+
+
+
+//after ALL questions have been written out like Titanic Q0 above, run the next line
+populateQueryResults(client, queryList, resultVariableList);
+
+
+function getRandomizedOptionList (questionNumber) {
+    optionList = [];
+    optionList.push(titanic[questionNumber]["wrong_ans1"]["text"]);
+    optionList.push(titanic[questionNumber]["wrong_ans2"]["text"]);
+    optionList.push(titanic[questionNumber]["wrong_ans3"]["text"]);
+    var rightAnswerOptionNumber = Math.floor((Math.random() * 4)); //random int between 0 (incl.) and 3 (incl.)
+    optionList.splice(rightAnswerOptionNumber, 0, titanic[questionNumber]["right_ans"]["text"]);
+    titanic[questionNumber]["right_ans"]["optionNumber"] = rightAnswerOptionNumber;
+    titanic[questionNumber]["randomizedOptionList"] = optionList;
+
+    console.log("Options are: " + optionList);
+    console.log("Correct Answer is: " + optionList[rightAnswerOptionNumber]);
+    return optionList;
+}
+
+
+//returns 1 if the User selected the right option for this question. 0 otherwise
+function processUserAnswer (questionNumber, req, res) {
+    if (Object.keys(req.query).length == 0) return; //user has given no answer (eg: when first question loads)
+    userSelection = -1;
+    if (req.query["0"] == "on") userSelection = 0;
+    else if (req.query["1"] == "on") userSelection = 1;
+    else if (req.query["2"] == "on") userSelection = 2;
+    else if (req.query["3"] == "on") userSelection = 3;
+
+    //TODO: test
+    console.log("User Selection Option Number: "+userSelection);
+
+    unusedQuestionNumbers.splice(unusedQuestionNumbers.indexOf(questionNumber), 1); //remove this question from the list of unused questions
+    if (userSelection == titanic[questionNumber]["right_ans"]["optionNumber"]) return 1;
+    else return 0;
+}
+
+function displayQuestion (questionNumber, req, res) {
+    currentQuestionText = titanic[questionNumber]["question"]["text"];
+    currentOptions = getRandomizedOptionList(questionNumber);
+    res.render('game.ejs', { message: req.flash('gameMessage'), currentOptions: currentOptions, currentQuestionText: currentQuestionText});
+}
+
+function titanicGame (req, res) {
+    
+    if (!newGame) currentScore += processUserAnswer(currentQuestion, req, res); //no need to process answers for new game
+    newGame = false;
+
+    if (unusedQuestionNumbers.length == 0) { //end of game
+        var finalScore = currentScore;
+        console.log("YOUR SCORE: " + finalScore + "/" + titanic.length);
+        //game Over
+
+        currentQuestion = -1;
+        currentScore = 0;
+        currentOptions = [];
+        currentQuestionText = ""
+        unusedQuestionNumbers = [0,1]; //TODO make this NOT hardcoded. Should be equal to the number of questions each game has
+        newGame = true;
+
+        res.render('score.ejs', {finalScore: finalScore});
+        return;
+    }
+    currentQuestion = Math.floor((Math.random() * unusedQuestionNumbers.length));
+    displayQuestion(currentQuestion, req, res);
+}
+
+
+
