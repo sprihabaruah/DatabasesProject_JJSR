@@ -37,6 +37,7 @@ module.exports = function(app, passport) {
     app.get('/login', function(req, res) {
 
         // render the page and pass in any flash data if it exists
+    	
         res.render('loginPage.ejs', { message: req.flash('loginMessage') }); 
     });
 
@@ -73,6 +74,7 @@ module.exports = function(app, passport) {
     // we will want this protected so you have to be logged in to visit
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/profile', isLoggedIn, function(req, res) {
+    	console.log("HERERERERERERREREREERHERERERERERERREREREERHERERERERERERREREREER "+ req.user);
         res.render('profile.ejs', {
             user : req.user // get the user out of session and pass to template
         });
@@ -632,8 +634,12 @@ function titanicGame (req, res) {
         currentQuestionText = ""
         populateUnusedQuestionNumbers();
 
+        // call user
+        console.log("HERERERERERERREREREERHERERERERERERREREREERHERERERERERERREREREER "+ req.user);
+        
         //push final score to this user's profile
         res.render('score.ejs', {finalScore: finalScore, totalNumberOfQuestions: totalNumberOfQuestions});
+       
         return;
     }
     currentQuestion = unusedQuestionNumbers[Math.floor((Math.random() * unusedQuestionNumbers.length))];

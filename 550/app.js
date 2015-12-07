@@ -10,7 +10,6 @@ var users = require('./routes/users');
 var output = require('./routes/game');
 var profile = require('./routes/profile');
 
-
 //var app = express();
 
 
@@ -115,6 +114,13 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+//app.use(session({
+//	
+//	secret: 'ilovescotchscotchyscotchscotch',
+//	
+//	
+//}));
 
 
 module.exports = app;

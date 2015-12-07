@@ -170,7 +170,6 @@ module.exports = function(passport) {
             }
             // all is well, return successful user
             
-            
             return done(null, user);
         });
 
