@@ -146,18 +146,21 @@ function seriallyExecuteQueries (client, dbQueryList, queryResultVariableList) {
 
     client.query(dbQuery, function(err, result) {
             if(err) return console.error('error running query', err);
-            queryResultVariable["text"] = result.rows[0].name;
+            queryresultValue = "";
+            for (key in result.rows[0]) {
+                queryresultValue = result.rows[0][key];
+            }
+
+            queryResultVariable["text"] = queryresultValue;
             seriallyExecuteQueries(client, dbQueryList, queryResultVariableList);
         });
 }
 
 
-var currentQuestion = -1;
+var currentQuestion = 0;
 var currentScore = 0;
 var currentOptions = [];
 var currentQuestionText = ""
-var unusedQuestionNumbers = [0,1]; //TODO: make this NOT hardcoded (should be equal to the number of questions the current game has)
-var newGame = true;
 
 var queryList = [];
 var resultVariableList = []; //list of **variables** where results of corresponding queries in queryList will be stored
@@ -215,12 +218,61 @@ titanic_q1["movie"] = "Titanic"; //for Bing search
 titanic.push(titanic_q1);
 //************* END: Code for Titanic Q1 **************
 
+//************* START: Code for Titanic Q2 **************
+var titanic_q2 = {};
+titanic_q2["question"] = {"text": 'When did the movie Titanic release?'};
 
+titanic_q2["right_ans"] = {"query": 'Select m.releasedate From movieinfo m Where m.title = \'Titanic\' and m.tagline = \'Nothing on Earth could come between them.\';'};
+queryList.push(titanic_q2["right_ans"]["query"]);
+resultVariableList.push(titanic_q2["right_ans"]);
+
+titanic_q2["wrong_ans1"] = {"query": 'Select m.releasedate From movieinfo m Where m.title != \'Titanic\' ORDER BY RANDOM() LIMIT 1;'};
+queryList.push(titanic_q2["wrong_ans1"]["query"]);
+resultVariableList.push(titanic_q2["wrong_ans1"]);
+
+titanic_q2["wrong_ans2"] = {"query": 'Select m.releasedate From movieinfo m Where m.title != \'Titanic\' ORDER BY RANDOM() LIMIT 1;'};
+queryList.push(titanic_q2["wrong_ans2"]["query"]);
+resultVariableList.push(titanic_q2["wrong_ans2"]);
+
+titanic_q2["wrong_ans3"] = {"query": 'Select m.releasedate From movieinfo m Where m.title != \'Titanic\' ORDER BY RANDOM() LIMIT 1;'};
+queryList.push(titanic_q2["wrong_ans3"]["query"]);
+resultVariableList.push(titanic_q2["wrong_ans3"]);
+
+titanic_q2["movie"] = "Titanic"; //for Bing search
+
+titanic.push(titanic_q2);
+//************* END: Code for Titanic Q2 **************
+
+//************* START: Code for Titanic Q3 **************
+var titanic_q3 = {};
+titanic_q3["question"] = {"text": 'Which actor plays the role of the character of Old Rose in Titanic?'};
+
+titanic_q3["right_ans"] = {"query": 'SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'Titanic\' and r.character = \'Old Rose\';'};
+queryList.push(titanic_q3["right_ans"]["query"]);
+resultVariableList.push(titanic_q3["right_ans"]);
+
+titanic_q3["wrong_ans1"] = {"query": 'SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'Titanic\' and r.character != \'Old Rose\' ORDER BY RANDOM() LIMIT 1;'};
+queryList.push(titanic_q3["wrong_ans1"]["query"]);
+resultVariableList.push(titanic_q3["wrong_ans1"]);
+
+titanic_q3["wrong_ans2"] = {"query": 'SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'Titanic\' and r.character != \'Old Rose\' ORDER BY RANDOM() LIMIT 1;'};
+queryList.push(titanic_q3["wrong_ans2"]["query"]);
+resultVariableList.push(titanic_q3["wrong_ans2"]);
+
+titanic_q3["wrong_ans3"] = {"query": 'SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'Titanic\' and r.character != \'Old Rose\' ORDER BY RANDOM() LIMIT 1;'};
+queryList.push(titanic_q3["wrong_ans3"]["query"]);
+resultVariableList.push(titanic_q3["wrong_ans3"]);
+
+titanic_q3["movie"] = "Titanic"; //for Bing search
+
+titanic.push(titanic_q3);
+//************* END: Code for Titanic Q3 **************
 
 
 //after ALL questions have been written out like Titanic Q0 above, run the next line
 populateQueryResults(client, queryList, resultVariableList);
-
+var unusedQuestionNumbers = [];
+populateUnusedQuestionNumbers();
 
 function getRandomizedOptionList (questionNumber) {
     optionList = [];
@@ -242,12 +294,12 @@ function getRandomizedOptionList (questionNumber) {
 function processUserAnswer (req, res) {
     //if (Object.keys(req.query).length == 0) return; //user has given no answer (eg: when first question loads)
     userSelection = req.query.userSelection;
-    questionNumber = req.query.questionNumber;
+    questionNumber = parseInt(req.query.questionNumber);
     var correctAnswerText = titanic[questionNumber]["right_ans"]["text"];
     //TODO: test
-    console.log("User Selection Option Number: "+userSelection);
 
-    
+    unusedQuestionNumbers.splice(unusedQuestionNumbers.indexOf(questionNumber), 1); //remove this question from the list of unused questions
+
     if (userSelection == titanic[questionNumber]["right_ans"]["optionNumber"]) {
         currentScore += 1;
         res.render('rightAnswer.ejs', {correctAnswerText : correctAnswerText});
@@ -262,7 +314,7 @@ function processUserAnswer (req, res) {
 function displayQuestion (questionNumber, req, res) {
     currentQuestionText = titanic[questionNumber]["question"]["text"];
     currentOptions = getRandomizedOptionList(questionNumber);
-    unusedQuestionNumbers.splice(unusedQuestionNumbers.indexOf(questionNumber), 1); //remove this question from the list of unused questions
+    
     res.render('game.ejs', { message: req.flash('gameMessage'), currentOptions: currentOptions, currentQuestionText: currentQuestionText, questionNumber: questionNumber});
 }
 
@@ -275,12 +327,10 @@ function titanicGame (req, res) {
         var finalScore = currentScore;
         console.log("YOUR SCORE: " + finalScore + "/" + titanic.length);
         //game Over
-
-        currentQuestion = -1;
         currentScore = 0;
         currentOptions = [];
         currentQuestionText = ""
-        unusedQuestionNumbers = [0,1]; //TODO make this NOT hardcoded. Should be equal to the number of questions each game has
+        populateUnusedQuestionNumbers();
 
         //push final score to this user's profile
         res.render('score.ejs', {finalScore: finalScore});
@@ -290,4 +340,9 @@ function titanicGame (req, res) {
     displayQuestion(currentQuestion, req, res);
 }
 
+function populateUnusedQuestionNumbers() {
+    for (i = 0; i < titanic.length; i++) {
+        unusedQuestionNumbers.push(i);
+    }
+}
 
