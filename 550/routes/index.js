@@ -160,7 +160,7 @@ function seriallyExecuteQueries (client, dbQueryList, queryResultVariableList) {
 var currentQuestion = 0;
 var currentScore = 0;
 var currentOptions = [];
-var currentQuestionText = ""
+var currentQuestionText = "";
 
 var queryList = [];
 var resultVariableList = []; //list of **variables** where results of corresponding queries in queryList will be stored
@@ -613,8 +613,8 @@ function processUserAnswer (req, res) {
 function displayQuestion (questionNumber, req, res) {
     currentQuestionText = titanic[questionNumber]["question"]["text"];
     currentOptions = getRandomizedOptionList(questionNumber);
-    
-    res.render('game.ejs', { message: req.flash('gameMessage'), currentOptions: currentOptions, currentQuestionText: currentQuestionText, questionNumber: questionNumber});
+    var currentHelpLink = "http://www.bing.com/search?q=" + titanic[questionNumber]["movie"] + "+Imdb";
+    res.render('game.ejs', { message: req.flash('gameMessage'), currentOptions: currentOptions, currentQuestionText: currentQuestionText, questionNumber: questionNumber, currentHelpLink: currentHelpLink});
 }
 
 function titanicGame (req, res) {
