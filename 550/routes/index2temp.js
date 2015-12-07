@@ -281,21 +281,17 @@ titanic_q4["right_ans"] = {"query": 'SELECT p.name FROM personinfo p INNER JOIN 
 queryList.push(titanic_q4["right_ans"]["query"]);
 resultVariableList.push(titanic_q4["right_ans"]);
 
-titanic_q4["all_wrong_ans"] = {"query": 'SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'Titanic\' and r.character != \'Caledon Cal Hockley\' ORDER BY RANDOM() LIMIT 3;'}; 
-queryList.push(titanic_q4["all_wrong_ans"]["query"]);
-resultVariableList.push(titanic_q4["all_wrong_ans"]);
+titanic_q4["wrong_ans1"] = {"query": 'SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'Titanic\' and r.character != \'Caledon Cal Hockley\' ORDER BY RANDOM() LIMIT 1;'};
+queryList.push(titanic_q4["wrong_ans1"]["query"]);
+resultVariableList.push(titanic_q4["wrong_ans1"]);
 
-//titanic_q4["wrong_ans1"] = {"query": 'SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'Titanic\' and r.character != \'Caledon Cal Hockley\' ORDER BY RANDOM() LIMIT 1;'};
-//queryList.push(titanic_q4["wrong_ans1"]["query"]);
-//resultVariableList.push(titanic_q4["wrong_ans1"]);
-//
-//titanic_q4["wrong_ans2"] = {"query": 'SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'Titanic\' and r.character != \'Caledon Cal Hockley\' ORDER BY RANDOM() LIMIT 1;'};
-//queryList.push(titanic_q4["wrong_ans2"]["query"]);
-//resultVariableList.push(titanic_q4["wrong_ans2"]);
-//
-//titanic_q4["wrong_ans3"] = {"query": 'SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'Titanic\' and r.character != \'Caledon Cal Hockley\' ORDER BY RANDOM() LIMIT 1;'};
-//queryList.push(titanic_q4["wrong_ans3"]["query"]);
-//resultVariableList.push(titanic_q4["wrong_ans3"]);
+titanic_q4["wrong_ans2"] = {"query": 'SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'Titanic\' and r.character != \'Caledon Cal Hockley\' ORDER BY RANDOM() LIMIT 1;'};
+queryList.push(titanic_q4["wrong_ans2"]["query"]);
+resultVariableList.push(titanic_q4["wrong_ans2"]);
+
+titanic_q4["wrong_ans3"] = {"query": 'SELECT p.name FROM personinfo p INNER JOIN roles r ON p.personId = r.personID INNER JOIN movieinfo m ON m.movieId = r.movieId WHERE m.title = \'Titanic\' and r.character != \'Caledon Cal Hockley\' ORDER BY RANDOM() LIMIT 1;'};
+queryList.push(titanic_q4["wrong_ans3"]["query"]);
+resultVariableList.push(titanic_q4["wrong_ans3"]);
 
 titanic_q4["movie"] = "Titanic"; //for Bing search
 
