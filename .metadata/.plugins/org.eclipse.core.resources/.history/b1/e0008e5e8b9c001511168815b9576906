@@ -545,7 +545,7 @@ titanic.push(godfather_q4);
 
 //************* START: Code for Godfather Q5 **************
 var godfather_q5 = {};
-godfather_q5["question"] = {"text": 'When did the movie The GodFather release?'};
+godfather_q5["question"] = {"text": 'When did the movie Inception release?'};
 
 godfather_q5["right_ans"] = {"query": 'Select m.releasedate From movieinfo m Where m.title = \'The Godfather\';'};
 queryList.push(godfather_q5["right_ans"]["query"]);
