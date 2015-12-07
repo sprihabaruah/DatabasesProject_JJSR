@@ -145,7 +145,7 @@ function seriallyExecuteQueries (client, dbQueryList, queryResultVariableList) {
 
     dbQuery = dbQueryList.shift(); //get first element of dbQueryList
     queryResultVariable = queryResultVariableList.shift();
-
+//    console.log(dbQuery);
     client.query(dbQuery, function(err, result) {
             if(err) return console.error('error running query', err);
             queryresultValue = "";
