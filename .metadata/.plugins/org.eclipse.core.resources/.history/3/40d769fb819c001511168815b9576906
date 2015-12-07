@@ -318,30 +318,30 @@ inception_q1["movie"] = "Inception"; //for Bing search
 titanic.push(inception_q1);
 //************* END: Code for Inception Q1 **************
 
-////************* START: Code for Inception Q2 **************
-//var inception_q2 = {};
-//inception_q2["question"] = {"text": 'When did the movie Inception release?'};
-//
-//inception_q2["right_ans"] = {"query": 'Select m.releasedate From movieinfo m Where m.title = \'Inception\';'};
-//queryList.push(inception_q2["right_ans"]["query"]);
-//resultVariableList.push(inception_q2["right_ans"]);
-//
-//inception_q2["wrong_ans1"] = {"query": 'Select m.releasedate From movieinfo m Where m.title != \'Inception\' ORDER BY RANDOM() LIMIT 1;'};
-//queryList.push(inception_q2["wrong_ans1"]["query"]);
-//resultVariableList.push(inception_q2["wrong_ans1"]);
-//
-//inception_q2["wrong_ans2"] = {"query": 'Select m.releasedate From movieinfo m Where m.title != \'Inception\' ORDER BY RANDOM() LIMIT 1;'};
-//queryList.push(inception_q2["wrong_ans2"]["query"]);
-//resultVariableList.push(inception_q2["wrong_ans2"]);
-//
-//inception_q2["wrong_ans3"] = {"query": 'Select m.releasedate From movieinfo m Where m.title != \'Inception\' ORDER BY RANDOM() LIMIT 1;'};
-//queryList.push(inception_q2["wrong_ans3"]["query"]);
-//resultVariableList.push(inception_q2["wrong_ans3"]);
-//
-//inception_q2["movie"] = "Inception"; //for Bing search
-//
-//titanic.push(inception_q2);
-////************* END: Code for Inception Q2 **************
+//************* START: Code for Inception Q2 **************
+var inception_q2 = {};
+inception_q2["question"] = {"text": 'When did the movie Inception release?'};
+
+inception_q2["right_ans"] = {"query": 'Select m.releasedate From movieinfo m Where m.title = \'Inception\';'};
+queryList.push(inception_q2["right_ans"]["query"]);
+resultVariableList.push(inception_q2["right_ans"]);
+
+inception_q2["wrong_ans1"] = {"query": 'Select m.releasedate From movieinfo m Where m.title != \'Inception\' ORDER BY RANDOM() LIMIT 1;'};
+queryList.push(inception_q2["wrong_ans1"]["query"]);
+resultVariableList.push(inception_q2["wrong_ans1"]);
+
+inception_q2["wrong_ans2"] = {"query": 'Select m.releasedate From movieinfo m Where m.title != \'Inception\' ORDER BY RANDOM() LIMIT 1;'};
+queryList.push(inception_q2["wrong_ans2"]["query"]);
+resultVariableList.push(inception_q2["wrong_ans2"]);
+
+inception_q2["wrong_ans3"] = {"query": 'Select m.releasedate From movieinfo m Where m.title != \'Inception\' ORDER BY RANDOM() LIMIT 1;'};
+queryList.push(inception_q2["wrong_ans3"]["query"]);
+resultVariableList.push(inception_q2["wrong_ans3"]);
+
+inception_q2["movie"] = "Inception"; //for Bing search
+
+titanic.push(inception_q2);
+//************* END: Code for Inception Q2 **************
 
 //************* START: Code for Inception Q3 **************
 var inception_q3 = {};
