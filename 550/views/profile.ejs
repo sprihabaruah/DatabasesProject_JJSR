@@ -112,46 +112,13 @@ Contact: http://www.bootshape.com/contact.php
     </div><!-- End Navigation bar -->
 
     
-    <h3 class="text-center">Movie Trivia Game!</h3>
-    <!-- Thumbnails -->
-    <div class="container thumbs">
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="/stylesheets/16.gif" alt="" class="img-circle">
-          <div class="caption">
-            <h3 class="text-center">Titanic</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
-            <div class="btn-toolbar text-center">
-              <a href="/titanic" role="button" class="btn btn-success">Play Game</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="/stylesheets/2.gif" alt="" class="img-circle">
-          <div class="caption">
-            <h3 class="text-center">The Hunger Games</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
-            <div class="btn-toolbar text-center">
-              <a href="/logout" role="button" class="btn btn-success">Log Out</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="/stylesheets/4.gif" alt="" class="img-circle">
-          <div class="caption">
-            <h3 class="text-center">Scream</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
-            <div class="btn-toolbar text-center">
-              <a href="#" role="button" class="btn btn-success">Details</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div><!-- End Thumbnails -->
+    <h1 class="text-center">Welcome! <%= user.local.email %> </h1>
+    <form method="get" action="/game">
+	
+	<div style="text-align:center">
+   	<p><button type="submit" class="btn btn-primary" style="height:300px;width:300px"><font size="10">Play Game</font></button></p>
+	</div>
+	</form>
     
     <!-- Footer -->
     <div class="footer text-center">
