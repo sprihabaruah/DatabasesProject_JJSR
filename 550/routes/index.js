@@ -624,7 +624,8 @@ function titanicGame (req, res) {
 
     if (unusedQuestionNumbers.length == 0) { //end of game
         var finalScore = currentScore;
-        console.log("YOUR SCORE: " + finalScore + "/" + titanic.length);
+        var totalNumberOfQuestions = titanic.length
+        console.log("YOUR SCORE: " + finalScore + "/" + totalNumberOfQuestions);
         //game Over
         currentScore = 0;
         currentOptions = [];
@@ -632,7 +633,7 @@ function titanicGame (req, res) {
         populateUnusedQuestionNumbers();
 
         //push final score to this user's profile
-        res.render('score.ejs', {finalScore: finalScore});
+        res.render('score.ejs', {finalScore: finalScore, totalNumberOfQuestions: totalNumberOfQuestions});
         return;
     }
     currentQuestion = unusedQuestionNumbers[Math.floor((Math.random() * unusedQuestionNumbers.length))];
