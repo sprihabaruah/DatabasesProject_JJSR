@@ -71,9 +71,12 @@ Contact: http://www.bootshape.com/contact.php
       </div>
     </div><!-- End Navigation bar -->
 
- 
+ <div style="text-align:center">
     <h1>YOUR SCORE: <%= finalScore%> OUT OF <%= totalNumberOfQuestions%></h1>
-
+    <form method="get" action="/game">
+    <p><button type="submit" class="btn btn-primary">Play Again</button></p>
+    </form>
+</div>
 
 <!--
 
