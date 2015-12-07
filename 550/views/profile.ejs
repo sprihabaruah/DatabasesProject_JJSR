@@ -56,7 +56,7 @@ Contact: http://www.bootshape.com/contact.php
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/"><span class="green">Movie</span> Trivia!</a>
+          <a class="navbar-brand" href="/profile"><span class="green">Movie</span> Trivia!</a>
         </div>
         <nav role="navigation" class="collapse navbar-collapse navbar-right">
           <ul class="navbar-nav nav">
@@ -69,7 +69,7 @@ Contact: http://www.bootshape.com/contact.php
             
         
             
-            <li>Welcome! <%= user.local.email %></li>  
+            
             
             <form method="get" action="http://www.bing.com/search">
 
@@ -113,10 +113,12 @@ Contact: http://www.bootshape.com/contact.php
 
     
     <h1 class="text-center">Welcome! <%= user.local.email %> </h1>
+    
+    <h2 class="text-center">Think you're a movie buff? You've got 15 questions to prove yourself. May the force be with you.</h2>
     <form method="get" action="/game">
 	
 	<div style="text-align:center">
-   	<p><button type="submit" class="btn btn-primary" style="height:300px;width:300px"><font size="10">Play Game</font></button></p>
+   	<p><button type="submit" class="btn btn-primary" style="height:100px;width:200px"><font size="5">Play Game</font></button></p>
 	</div>
 	</form>
     
