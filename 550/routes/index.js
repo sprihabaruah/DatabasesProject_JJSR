@@ -247,7 +247,7 @@ function processUserAnswer (req, res) {
     //TODO: test
     console.log("User Selection Option Number: "+userSelection);
 
-    unusedQuestionNumbers.splice(unusedQuestionNumbers.indexOf(questionNumber), 1); //remove this question from the list of unused questions
+    
     if (userSelection == titanic[questionNumber]["right_ans"]["optionNumber"]) {
         currentScore += 1;
         res.render('rightAnswer.ejs', {correctAnswerText : correctAnswerText});
@@ -262,6 +262,7 @@ function processUserAnswer (req, res) {
 function displayQuestion (questionNumber, req, res) {
     currentQuestionText = titanic[questionNumber]["question"]["text"];
     currentOptions = getRandomizedOptionList(questionNumber);
+    unusedQuestionNumbers.splice(unusedQuestionNumbers.indexOf(questionNumber), 1); //remove this question from the list of unused questions
     res.render('game.ejs', { message: req.flash('gameMessage'), currentOptions: currentOptions, currentQuestionText: currentQuestionText, questionNumber: questionNumber});
 }
 
