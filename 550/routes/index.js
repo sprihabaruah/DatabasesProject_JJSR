@@ -624,18 +624,16 @@ function titanicGame (req, res) {
     //if (!newGame) currentScore += processUserAnswer(currentQuestion, req, res); //no need to process answers for new game
     //newGame = false;
 
-    if (unusedQuestionNumbers.length == 0) { //end of game
+    if (unusedQuestionNumbers.length == 5) { //end of game
         var finalScore = currentScore;
-        var totalNumberOfQuestions = titanic.length
+        var numberOfQuestions = titanic.length;
+        var totalNumberOfQuestions = numberOfQuestions - unusedQuestionNumbers.length;
         console.log("YOUR SCORE: " + finalScore + "/" + totalNumberOfQuestions);
         //game Over
         currentScore = 0;
         currentOptions = [];
         currentQuestionText = ""
         populateUnusedQuestionNumbers();
-
-        // call user
-        console.log("HERERERERERERREREREERHERERERERERERREREREERHERERERERERERREREREER "+ req.user);
         
         //push final score to this user's profile
         res.render('score.ejs', {finalScore: finalScore, totalNumberOfQuestions: totalNumberOfQuestions});
