@@ -10,3 +10,5 @@ Alternatively, you could also visit jjsr.herokuapp.com (this is where our app is
 Extra credit implemented and other details, including technical specifications are discussed in our project writeup.
 
 Thank you!
+
+Link to our github: https://github.com/sprihabaruah/DatabasesProject_JJSR
